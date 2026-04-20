@@ -240,7 +240,7 @@
     "title": "Klíčové pojmy",
     "subtitle": "Slovník EXPANDO. Tato slova budeš používat každý den.",
     "searchPlaceholder": "Hledat pojmy…",
-    "noResults": "Žádné pojmy pro „{{query}}"",
+    "noResults": "Žádné pojmy pro '{{query}}'",
     "terms": [
       { "term": "FBA", "def": "Fulfillment by Amazon — Amazon skladuje a posílá zboží. Nižší operační zátěž, vyšší poplatky." },
       { "term": "FBM", "def": "Fulfillment by Merchant — prodejce skladuje a posílá. Větší kontrola, větší odpovědnost." },
