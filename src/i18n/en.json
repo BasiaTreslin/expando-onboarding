@@ -1,0 +1,310 @@
+{
+  "nav": {
+    "profile": "Your Profile",
+    "story": "Our Story",
+    "values": "Values",
+    "services": "Services",
+    "journey": "Client Journey",
+    "day1": "Day 1",
+    "90days": "90 Days",
+    "tools": "Tools",
+    "switchLang": "CZ"
+  },
+  "hero": {
+    "welcome": "Welcome,",
+    "daysUntil": "days until your start",
+    "hoursUntil": "hours until your start",
+    "dayOfJourney": "Day {{n}} of your journey",
+    "startDateLabel": "Start date:",
+    "cta": "Explore your guide",
+    "tagline": "You're reading this because in a few days you'll be joining our team. This is your map for the first 90 days.",
+    "scrollHint": "Scroll to begin"
+  },
+  "profile": {
+    "title": "Your Profile & Day 1",
+    "subtitle": "Everything you need to know before you walk in the door.",
+    "role": "Role",
+    "team": "Team",
+    "startDate": "Start Date",
+    "startTime": "9:00 AM",
+    "buddy": "Your Buddy",
+    "teamLeader": "Team Leader",
+    "contractType": "Contract Type",
+    "linkedinProfile": "LinkedIn",
+    "officeAddress": "Expando HQ, Praha"
+  },
+  "story": {
+    "title": "Our Story",
+    "subtitle": "From one Metallica t-shirt to a top 20% Amazon agency — globally.",
+    "milestones": [
+      {
+        "year": "2016",
+        "title": "EXPANDO is born",
+        "description": "Adam Kurzok & Vojtěch Zogata found EXPANDO in Prague. First client: Metalshop. First product ever sold on Amazon? A Metallica t-shirt. The legend is real."
+      },
+      {
+        "year": "2020–21",
+        "title": "Growth through the storm",
+        "description": "While the world paused, e-commerce exploded. EXPANDO helped clients thrive during COVID. The 'Happy Client First' philosophy was forged in this fire."
+      },
+      {
+        "year": "2022",
+        "title": "€75M GMV milestone",
+        "description": "We crossed €75 million in gross merchandise value for our clients — and we were just getting started."
+      },
+      {
+        "year": "2024",
+        "title": "Global team",
+        "description": "Teams across 6 countries. Clients in 7. Top 20% of Amazon agencies worldwide. 90 seller accounts in the agency, ~300 on the tech platform."
+      },
+      {
+        "year": "2026",
+        "title": "The next chapter — and you",
+        "description": "Expanding into new markets, building AI-powered services. You're joining right when it gets interesting."
+      }
+    ]
+  },
+  "values": {
+    "title": "Our Values",
+    "subtitle": "Five principles we live by — with real proof.",
+    "expandExample": "See real example",
+    "collapseExample": "Close",
+    "items": [
+      {
+        "id": "always-interact",
+        "name": "Always Interact",
+        "tagline": "Open communication, always.",
+        "example": "When one client's MRO products kept getting flagged for returns, we proactively switched to returnless refunds. The Account Health went green — without waiting for the client to ask."
+      },
+      {
+        "id": "innovate-with-data",
+        "name": "Innovate with Data",
+        "tagline": "We decide with data, not gut feel.",
+        "example": "We integrated Intercom with an AI layer for customer support. Response time dropped to under 2 minutes. Not because someone said 'let's be faster' — because the data showed exactly where to act."
+      },
+      {
+        "id": "do-it-simply",
+        "name": "Do it Simply",
+        "tagline": "Simplicity is a competitive advantage.",
+        "example": "Agency Support SOPs were scattered and inconsistent. We rebuilt them from scratch — clear, unified, easy to follow. The whole team aligned in days, not months."
+      },
+      {
+        "id": "enjoy-the-growth",
+        "name": "Enjoy the Growth",
+        "tagline": "Company growth and personal growth, together.",
+        "example": "Crystal Bohemia wanted to try B2C for the first time. We made it happen on Amazon. The team learned, the client grew, and we built a new capability that now serves multiple accounts."
+      },
+      {
+        "id": "happy-client-first",
+        "name": "Happy Client First",
+        "tagline": "The client's win is our win.",
+        "example": "Institut Katharos had their Amazon account suspended. We reactivated it in record time — faster than any benchmark in the industry. They didn't just stay — they expanded with us."
+      }
+    ]
+  },
+  "services": {
+    "title": "What We Do for Clients",
+    "subtitle": "Two core models, one mission: grow globally.",
+    "resellerTitle": "Reseller (EAN)",
+    "resellerDesc": "We buy stock, list it, and sell it at scale. Think: a sports e-shop with 3,000+ products across Amazon, Kaufland, Allegro, and more.",
+    "privateLabelTitle": "Private Label (UNIQ)",
+    "privateLabelDesc": "We build a brand's marketplace presence from the ground up. Think: a Czech cosmetics brand going international for the first time.",
+    "whatWeDo": "What we actually do:",
+    "capabilities": [
+      "Marketplace account management (Amazon, Kaufland, eBay, Allegro, TEMU)",
+      "Listing optimization — SEO, photography, A+ content",
+      "PPC advertising management",
+      "Logistics — FBA & FBM",
+      "Customer support in multiple languages",
+      "Data sync via EXPANDO APP",
+      "Reporting & strategic consulting"
+    ]
+  },
+  "journey": {
+    "title": "How We Win with Clients",
+    "subtitle": "Five steps — from first contact to long-term partnership.",
+    "steps": [
+      {
+        "step": "01",
+        "team": "GTM",
+        "title": "We find the client",
+        "description": "Sales team identifies potential sellers, does market analysis, and closes the deal. Every great partnership starts here."
+      },
+      {
+        "step": "02",
+        "team": "AM",
+        "title": "We onboard them",
+        "description": "KAM takes over. Resell onboarding used to take 172 days — we cut it to 42. Speed is a feature."
+      },
+      {
+        "step": "03",
+        "team": "AM",
+        "title": "We grow together",
+        "description": "Example: Podpal went from 0 to 12,000 orders in 3 months, across 9 marketplaces. We treat every account as if it's our own business."
+      },
+      {
+        "step": "04",
+        "team": "CS",
+        "title": "We protect their reputation",
+        "description": "Customer Success keeps Account Health in the green zone. A suspended account is a crisis — we prevent crises before they happen."
+      },
+      {
+        "step": "05",
+        "team": "Data",
+        "title": "Data drives every decision",
+        "description": "Reports, dashboards, AI tools — everything we recommend is backed by numbers. No guessing."
+      }
+    ]
+  },
+  "day1": {
+    "title": "Your Day 1",
+    "subtitle": "Here's what your first day looks like. Come curious.",
+    "miniTask": "Throughout the day, notice one thing that surprised you from the client's perspective. You'll share it with the team at the end of the day.",
+    "miniTaskLabel": "Your mini-task",
+    "lunchNote": "Team lunch — ask questions, break the ice",
+    "schedule": [
+      { "time": "9:00–9:30", "session": "Welcome & Icebreaker", "who": "Operations" },
+      { "time": "9:30–10:15", "session": "How We Win Clients", "who": "Sales Team" },
+      { "time": "10:15–11:00", "session": "First Steps with a Client", "who": "KAM" },
+      { "time": "11:00–12:00", "session": "Strategy & OKRs", "who": "Senior KAM" },
+      { "time": "12:00–13:00", "session": "Lunch with the team", "who": "Everyone" },
+      { "time": "13:00–13:45", "session": "Customer Success Deep Dive", "who": "CS Leader" },
+      { "time": "13:45–14:30", "session": "Reporting & Analytics", "who": "Data Team" },
+      { "time": "14:30–16:00", "session": "Tools Setup & First Look", "who": "Ops + Buddy" }
+    ]
+  },
+  "journey90": {
+    "title": "Your 90-Day Journey",
+    "subtitle": "Three months, three gears. Here's how it unfolds.",
+    "certified": "CERTIFIED",
+    "months": [
+      {
+        "label": "Month 1",
+        "period": "Days 1–30",
+        "theme": "Learn & Absorb",
+        "goal": "Orientation, observation, and your first independent steps.",
+        "milestones": [
+          "Shadow senior KAMs on client calls",
+          "Complete EXPANDO Academy modules for your role",
+          "Build 10+ leads in pipeline",
+          "Run 2+ solo discovery meetings",
+          "Follow up on any outreach within 2 hours"
+        ],
+        "output": "Day 30 checkpoint: 10+ leads, 2+ solo meetings, fast follow-up habit"
+      },
+      {
+        "label": "Month 2",
+        "period": "Days 31–60",
+        "theme": "Contribute & Scale",
+        "goal": "Semi-autonomy. You own the conversation.",
+        "milestones": [
+          "Build and present your own pricing proposals",
+          "Handle objections independently",
+          "Run 3+ meetings per week",
+          "Maintain 15+ active leads in pipeline"
+        ],
+        "output": "Day 60 checkpoint: 15+ leads, 3+ meetings/week, pricing confidence"
+      },
+      {
+        "label": "Month 3",
+        "period": "Days 61–90",
+        "theme": "Own & Deliver",
+        "goal": "Full autonomy. First deal. Knowledge contribution.",
+        "milestones": [
+          "Close your first deal — independently",
+          "Pass EXPANDO certification (≥80% on weekly quizzes)",
+          "Write at least one Knowledge Base article",
+          "Contribute to team retrospective with data-backed insights"
+        ],
+        "output": "Day 90: CERTIFIED 🏅 + first closed deal + KB contribution"
+      }
+    ]
+  },
+  "tools": {
+    "title": "Tools You'll Use",
+    "subtitle": "Your digital workspace. Setup happens with your buddy on Day 1.",
+    "ctaNote": "Don't stress about access yet — your buddy will walk you through everything on Day 1.",
+    "items": [
+      { "name": "Slack", "desc": "Team communication — where everything happens" },
+      { "name": "ClickUp", "desc": "Project & task management" },
+      { "name": "Notion", "desc": "Knowledge base — EXPANDO Academy lives here" },
+      { "name": "Zoho Vault", "desc": "Password manager for shared accounts" },
+      { "name": "Seller Central", "desc": "Amazon's main platform — your daily driver" },
+      { "name": "EXPANDO APP", "desc": "Our proprietary data sync & automation tool" },
+      { "name": "Looker Studio", "desc": "Dashboards and reporting" },
+      { "name": "Pipedrive", "desc": "CRM for the GTM / sales team" },
+      { "name": "Missive", "desc": "Shared inbox for account management" }
+    ]
+  },
+  "glossary": {
+    "title": "Key Terms",
+    "subtitle": "The EXPANDO vocabulary. You'll use these daily.",
+    "searchPlaceholder": "Search terms…",
+    "noResults": "No terms found for \"{{query}}\"",
+    "terms": [
+      { "term": "FBA", "def": "Fulfillment by Amazon — Amazon stores and ships the goods. Lower operational overhead, higher fees." },
+      { "term": "FBM", "def": "Fulfillment by Merchant — the seller stores and ships. More control, more responsibility." },
+      { "term": "BuyBox", "def": "The 'Add to Cart' button. Winning it = getting the sale. Determined by price, seller metrics, and fulfillment method." },
+      { "term": "ACOS", "def": "Advertising Cost of Sales — (Ad Spend ÷ Ad Revenue) × 100. Lower is better, but context matters." },
+      { "term": "TACOS", "def": "Total ACOS — (Ad Spend ÷ Total Revenue) × 100. Measures ad efficiency against all revenue, not just ad-driven." },
+      { "term": "PPC", "def": "Pay-Per-Click — Amazon's advertising model. Sponsored Products, Brands, Display." },
+      { "term": "SKU", "def": "Stock Keeping Unit — a unique internal identifier for each product variant." },
+      { "term": "ASIN", "def": "Amazon Standard Identification Number — Amazon's unique product ID. Every listing has one." },
+      { "term": "EAN / GTIN", "def": "European Article Number / Global Trade Item Number — barcode standard used for product identification." },
+      { "term": "A+ Content", "def": "Enhanced product description with images, comparison tables, and brand story. Increases conversion." },
+      { "term": "Account Health", "def": "Amazon's dashboard showing policy compliance. We keep this green — always." },
+      { "term": "ODR", "def": "Order Defect Rate — returns, A-to-Z claims, chargebacks. Must stay below 1%." },
+      { "term": "A-to-Z Claim", "def": "When a buyer files a dispute directly with Amazon because the seller didn't resolve it. Serious." },
+      { "term": "NPS", "def": "Net Promoter Score — how likely is the client to recommend us? We track this quarterly." },
+      { "term": "KAM", "def": "Key Account Manager — owns the client relationship end-to-end." },
+      { "term": "Onboarding", "def": "The process of setting up a new client on Amazon and other marketplaces. Resell: 42 days. PL: longer." },
+      { "term": "Ungating", "def": "Getting approved to sell in restricted Amazon categories (e.g., Beauty, Health). Requires documentation." },
+      { "term": "Listing", "def": "A product page on Amazon. Title, bullets, description, images, backend keywords — all matter." },
+      { "term": "Resell (EAN)", "def": "Our model where we resell existing branded products. Identified by EAN/GTIN codes." },
+      { "term": "Private Label (UNIQ)", "def": "Our model for building a client's own brand on Amazon from scratch." },
+      { "term": "OKR", "def": "Objectives and Key Results — how EXPANDO sets and tracks goals quarterly." }
+    ]
+  },
+  "support": {
+    "title": "Who's Got Your Back",
+    "subtitle": "You'll never be stuck without someone to ask. Here's who to reach for what.",
+    "situation": "Situation",
+    "contact": "Contact",
+    "channel": "Channel",
+    "rows": [
+      { "situation": "Anything in your first 4 weeks", "contact": "Your buddy", "channel": "Slack DM" },
+      { "situation": "Contract, HR, or admin questions", "contact": "Your Team Leader", "channel": "Slack DM" },
+      { "situation": "Non-Amazon marketplace questions", "contact": "New MP Team", "channel": "#am-team-new-mp" },
+      { "situation": "Feed sync or EXPANDO APP issues", "contact": "Tech Team", "channel": "Slack #tech" },
+      { "situation": "Well-being, culture, anything personal", "contact": "Operations", "channel": "Slack DM or in person" }
+    ]
+  },
+  "prereading": {
+    "title": "Before Day 1",
+    "subtitle": "Optional but worth it. Arrive with context.",
+    "links": [
+      { "icon": "book-open", "label": "EXPANDO Sales Bible", "desc": "The strategic foundation — how we think about sales" },
+      { "icon": "book", "label": "Sales Handbook 2025", "desc": "Practical playbook for your first 90 days" },
+      { "icon": "building-2", "label": "Team Hub (your role)", "desc": "Role-specific onboarding resources and processes" },
+      { "icon": "mail", "label": "Pre-onboarding Bulletin", "desc": "The original bulletin you may have already received" },
+      { "icon": "map", "label": "Resource Map", "desc": "Your role-specific map of everything you'll need" }
+    ]
+  },
+  "cta": {
+    "title": "We're excited to have you.",
+    "subtitle": "You don't need to have all the answers before Day 1. Come curious, be open, and trust the process. We've got you.",
+    "signature": "Team EXPANDO",
+    "videoComingSoon": "Welcome message from the team — coming soon",
+    "videoPlay": "Play welcome message",
+    "questionsLabel": "Questions before Day 1?",
+    "questionsContact": "Reach out to HR at people@expando.com",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "close": "Close",
+    "loading": "Loading…",
+    "scrollToTop": "Back to top"
+  }
+}
