@@ -4,7 +4,7 @@ import { getNewHireBySlug, getAllSlugs } from '@/data/newHires';
 import { OnboardingPage } from '@/components/OnboardingPage';
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -12,7 +12,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const config = getNewHireBySlug(params.slug);
+  const { slug } = await params;
+  const config = getNewHireBySlug(slug);
   if (!config) return { title: 'EXPANDO Onboarding' };
   return {
     title: `Welcome, ${config.name} — EXPANDO Onboarding`,
@@ -21,8 +22,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function SlugPage({ params }: Props) {
-  const config = getNewHireBySlug(params.slug);
+export default async function SlugPage({ params }: Props) {
+  const { slug } = await params;
+  const config = getNewHireBySlug(slug);
   if (!config) notFound();
   return <OnboardingPage config={config} />;
 }
