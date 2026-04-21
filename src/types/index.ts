@@ -4,6 +4,11 @@ export interface PersonInfo {
   linkedin?: string;
 }
 
+export interface Credentials {
+  username: string;
+  password: string;
+}
+
 export type ContractType = 'HPP' | 'ŽL' | 'DPČ';
 export type Language = 'en' | 'cs';
 export type RoleKey = 'KAM' | 'AgencySupport' | 'CS' | 'PPCSpecialist' | 'TechData' | 'GTMSales' | 'Operations';
@@ -30,4 +35,5 @@ export interface NewHireConfig {
   customDay1Schedule?: Day1Session[];
   hasWelcomeVideo?: boolean;
   welcomeVideoUrl?: string;
+  credentials: Credentials;
 }

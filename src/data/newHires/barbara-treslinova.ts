@@ -19,4 +19,8 @@ export const config: NewHireConfig = {
   contractType: 'ŽL',
   language: 'en',
   hasWelcomeVideo: false,
+  credentials: {
+    username: 'barbara',
+    password: 'expando-welcome-2026',
+  },
 };

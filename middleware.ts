@@ -1,46 +1,46 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { verifySession, SESSION_COOKIE } from '@/lib/auth';
 
-// Stub magic-link validation for MVP.
-// Phase 3: replace with full HMAC token verification using jose.
-//
-// To enable: set REQUIRE_MAGIC_LINK=true in env and issue tokens via
-// the /api/admin/generate-link route (see src/app/api/admin/generate-link).
+const PUBLIC_PATHS = new Set(['/login', '/api/login', '/api/logout']);
 
-const REQUIRE_MAGIC_LINK = process.env.REQUIRE_MAGIC_LINK === 'true';
+export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  // Skip auth for root, API routes, static assets
-  if (
-    pathname === '/' ||
-    pathname.startsWith('/api/') ||
-    pathname.startsWith('/_next/') ||
-    pathname.startsWith('/favicon') ||
-    pathname.startsWith('/photos/') ||
-    pathname.startsWith('/logo/')
-  ) {
+  // Allow public paths
+  if (PUBLIC_PATHS.has(pathname)) {
     return NextResponse.next();
   }
 
-  if (!REQUIRE_MAGIC_LINK) {
-    return NextResponse.next();
+  // Read session
+  const token = req.cookies.get(SESSION_COOKIE)?.value;
+  const session = token ? await verifySession(token) : null;
+
+  // Root: redirect to login (or personal page if already signed in)
+  if (pathname === '/') {
+    if (session) {
+      return NextResponse.redirect(new URL(`/${session.slug}`, req.url));
+    }
+    return NextResponse.redirect(new URL('/login', req.url));
   }
 
-  const token = request.nextUrl.searchParams.get('t');
-
-  if (!token) {
-    return NextResponse.redirect(new URL('/?auth=required', request.url));
+  // Everything else requires a session
+  if (!session) {
+    return NextResponse.redirect(new URL('/login', req.url));
   }
 
-  // Phase 3: verify HMAC token here
-  // const isValid = await verifyToken(token, slug);
-  // if (!isValid) return NextResponse.redirect(new URL('/?auth=invalid', request.url));
+  // Extract first path segment as slug
+  const urlSlug = pathname.split('/')[1];
+
+  // A user may only see their own page
+  if (urlSlug && urlSlug !== session.slug) {
+    return NextResponse.redirect(new URL(`/${session.slug}`, req.url));
+  }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  // Skip Next.js internals and static assets
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|photos|logo).*)'],
 };
