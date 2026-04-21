@@ -1,310 +1,211 @@
 {
   "nav": {
-    "profile": "Tvůj profil",
-    "story": "Náš příběh",
-    "values": "Hodnoty",
-    "services": "Služby",
-    "journey": "Cesta klienta",
-    "day1": "Den 1",
-    "90days": "90 dní",
-    "tools": "Nástroje",
+    "dna": "Naše DNA",
+    "tribe": "Tým",
+    "day1": "První den",
+    "whyCool": "Proč to bude fajn",
+    "journey": "90 dní",
+    "cta": "Jde se",
     "switchLang": "EN"
   },
   "hero": {
-    "welcome": "Vítej,",
-    "daysUntil": "dní do startu",
-    "hoursUntil": "hodin do startu",
-    "dayOfJourney": "Den {{n}} tvé cesty",
-    "startDateLabel": "Datum nástupu:",
-    "cta": "Projít průvodcem",
-    "tagline": "Čteš toto proto, že za pár dní se staneš součástí našeho týmu. Toto je tvá mapa pro prvních 90 dní.",
-    "scrollHint": "Rolovat dolů"
+    "greeting": "Ahoj {{name}} 👋",
+    "startsInDays": "Za {{days}} dní startujeme spolu.",
+    "startsTomorrow": "Zítra startujeme spolu.",
+    "startsToday": "Dneska startujeme spolu.",
+    "alreadyStarted": "Den {{day}} tvé cesty",
+    "subtitle": "Vítej v týmu, který mění pravidla globálního e-commerce.",
+    "microcopy": "V EXPANDO neposíláme jen balíky. Pomáháme lokálním firmám dobývat svět. A teď v tom budeš i ty — jako {{role}} v týmu {{team}}.",
+    "cta": "Pojď dál",
+    "scrollHint": "Pokračuj dolů"
   },
-  "profile": {
-    "title": "Tvůj profil & Den 1",
-    "subtitle": "Vše, co potřebuješ vědět, než poprvé vstoupíš do kanceláře.",
-    "role": "Pozice",
-    "team": "Tým",
-    "startDate": "Datum nástupu",
-    "startTime": "9:00",
-    "buddy": "Tvůj buddy",
-    "teamLeader": "Team leader",
-    "contractType": "Typ smlouvy",
-    "linkedinProfile": "LinkedIn",
-    "officeAddress": "EXPANDO HQ, Praha"
-  },
-  "story": {
-    "title": "Náš příběh",
-    "subtitle": "Od jednoho Metallica trička k top 20 % Amazon agentur na světě.",
-    "milestones": [
-      {
-        "year": "2016",
-        "title": "EXPANDO vzniká",
-        "description": "Adam Kurzok a Vojtěch Zogata zakládají EXPANDO v Praze. První klient: Metalshop. První produkt prodaný na Amazonu? Metallica tričko. Legenda je skutečná."
-      },
-      {
-        "year": "2020–21",
-        "title": "Růst v bouři",
-        "description": "Zatímco svět zastavil, e-commerce explodovalo. EXPANDO pomáhalo klientům prosperovat. Filozofie 'Happy Client First' se zrodila právě tehdy."
-      },
-      {
-        "year": "2022",
-        "title": "Milník €75M GMV",
-        "description": "Překročili jsme €75 milionů v hrubé hodnotě zboží pro naše klienty — a ani jsme nezpomalili."
-      },
-      {
-        "year": "2024",
-        "title": "Globální tým",
-        "description": "Týmy v 6 zemích. Klienti v 7. Top 20 % Amazon agentur celosvětově. 90 seller accounts v agentuře, ~300 na tech platformě."
-      },
-      {
-        "year": "2026",
-        "title": "Další kapitola — a ty",
-        "description": "Expanze na nové trhy, AI-powered služby. Nastupuješ přesně tehdy, kdy to začíná být zajímavé."
-      }
-    ]
-  },
-  "values": {
-    "title": "Naše hodnoty",
-    "subtitle": "Pět principů, podle kterých žijeme — s reálnými důkazy.",
-    "expandExample": "Ukázat příklad",
-    "collapseExample": "Zavřít",
-    "items": [
-      {
-        "id": "always-interact",
-        "name": "Always Interact",
-        "tagline": "Otevřená komunikace, vždy.",
-        "example": "Když byly MRO produkty jednoho klienta opakovaně vraceny, proaktivně jsme přešli na returnless refunds. Account Health se vrátil do zelené — bez toho, aby to klient musel žádat."
-      },
-      {
-        "id": "innovate-with-data",
-        "name": "Innovate with Data",
-        "tagline": "Rozhodujeme podle dat, ne podle pocitů.",
-        "example": "Integrovali jsme Intercom s AI vrstvou pro customer support. Doba odpovědi klesla pod 2 minuty. Ne proto, že někdo řekl 'buďme rychlejší' — ale protože data ukázala přesně kde jednat."
-      },
-      {
-        "id": "do-it-simply",
-        "name": "Do it Simply",
-        "tagline": "Jednoduchost je konkurenční výhoda.",
-        "example": "Agency Support SOP byly rozptýlené a nejednotné. Přestavěli jsme je od základů — jasné, jednotné, snadno sledovatelné. Celý tým byl sladěn za dny, ne měsíce."
-      },
-      {
-        "id": "enjoy-the-growth",
-        "name": "Enjoy the Growth",
-        "tagline": "Růst firmy a osobní růst, dohromady.",
-        "example": "Crystal Bohemia chtěla poprvé vyzkoušet B2C. Zprostředkovali jsme to na Amazonu. Tým se naučil nové věci, klient rostl a my jsme vybudovali schopnost, která dnes slouží více účtům."
-      },
-      {
-        "id": "happy-client-first",
-        "name": "Happy Client First",
-        "tagline": "Klientův úspěch je naším úspěchem.",
-        "example": "Institut Katharos měl pozastavený Amazon účet. Reaktivovali jsme ho v rekordním čase — rychleji než jakýkoliv benchmark v oboru. Nejenže zůstali — rozšířili s námi spolupráci."
-      }
-    ]
-  },
-  "services": {
-    "title": "Co děláme pro klienty",
-    "subtitle": "Dva základní modely, jedna mise: globální růst.",
-    "resellerTitle": "Reseller (EAN)",
-    "resellerDesc": "Kupujeme zboží, vytváříme listingy a prodáváme ve velkém. Představ si: sportovní e-shop s 3 000+ produkty na Amazonu, Kauflandu, Allegru a dalších.",
-    "privateLabelTitle": "Private Label (UNIQ)",
-    "privateLabelDesc": "Budujeme přítomnost značky na marketplace od základů. Představ si: česká kosmetická značka vstupující na zahraniční trhy poprvé.",
-    "whatWeDo": "Co konkrétně děláme:",
-    "capabilities": [
-      "Správa marketplace účtů (Amazon, Kaufland, eBay, Allegro, TEMU)",
-      "Optimalizace listingů — SEO, fotografie, A+ content",
-      "Správa PPC reklamy",
-      "Logistika — FBA i FBM",
-      "Zákaznická podpora ve více jazycích",
-      "Datová synchronizace přes EXPANDO APP",
-      "Reporting a strategické poradenství"
-    ]
-  },
-  "journey": {
-    "title": "Jak vyhrýváme s klienty",
-    "subtitle": "Pět kroků — od prvního kontaktu k dlouhodobému partnerství.",
+  "dna": {
+    "title": "Tohle je naše DNA",
+    "intro": "Představ si českého výrobce bot. Skvělý produkt, ale prodává jen doma.",
     "steps": [
       {
-        "step": "01",
-        "team": "GTM",
-        "title": "Najdeme klienta",
-        "description": "Sales tým identifikuje potenciální prodejce, provede tržní analýzu a uzavře obchod. Každé skvělé partnerství začíná zde."
+        "emoji": "🤝",
+        "title": "Napojíme ho",
+        "description": "Registrujeme ho na Amazon, Kaufland, eBay, Allegro. Synchronizujeme produkty přes EXPANDO APP — naši vlastní technologii."
       },
       {
-        "step": "02",
-        "team": "AM",
-        "title": "Onboardujeme ho",
-        "description": "KAM přebírá klienta. Resell onboarding trval 172 dní — zkrátili jsme ho na 42. Rychlost je feature."
+        "emoji": "🌍",
+        "title": "Přeložíme svět",
+        "description": "Lokalizujeme listingy do 5+ jazyků, řešíme logistiku (FBA/FBM), spouštíme PPC kampaně, staráme se o zákazníky v jejich jazyce."
       },
       {
-        "step": "03",
-        "team": "AM",
-        "title": "Rosteme spolu",
-        "description": "Příklad: Podpal šel z 0 na 12 000 objednávek za 3 měsíce na 9 marketplace. Ke každému účtu přistupujeme, jako by byl náš vlastní."
-      },
-      {
-        "step": "04",
-        "team": "CS",
-        "title": "Chráníme jejich reputaci",
-        "description": "Customer Success udržuje Account Health v zelené zóně. Pozastavený účet je krize — my krize předcházíme."
-      },
-      {
-        "step": "05",
-        "team": "Data",
-        "title": "Data pohánějí každé rozhodnutí",
-        "description": "Reporty, dashboardy, AI nástroje — vše, co doporučujeme, je podloženo čísly. Žádné hádání."
+        "emoji": "🚀",
+        "title": "A on prorazí",
+        "description": "Od první objednávky po miliony v obratu. Náš klient Podpal: z 0 na 12 000 objednávek za 3 měsíce, teď je na 9 marketplaces."
       }
+    ],
+    "roleMissionLabel": "Tvoje role v tom:",
+    "clientTypesTitle": "Dva typy cest:",
+    "clientTypes": [
+      { "label": "Resell (EAN)", "desc": "Pomáháme cizím značkám prorazit." },
+      { "label": "Private Label (UNIQ)", "desc": "Stavíme vlastní značky od základů." }
     ]
+  },
+  "tribe": {
+    "title": "Potkej tým",
+    "subtitle": "Tohle jsou lidé, se kterými budeš trávit víc času než s rodinou.",
+    "foundersIntro": "V roce 2016 založili EXPANDO v Praze — a pak po 10 letech přivedli EXPANDO mezi top 20 % Amazon agentur na světě.",
+    "yourCircleLabel": "Tvůj nejbližší kruh",
+    "yourCircleSubtitle": "S těmito dvěma se potkáš první den.",
+    "buddyLabel": "Tvoje buddy",
+    "leaderLabel": "Tvůj leader",
+    "slackCTA": "Napiš na Slack",
+    "emailCTA": "Napiš email",
+    "restTitle": "Zbytek kmene",
+    "restSubtitle": "Všichni tě zná — minimálně z Notion. Tak se koukni zpátky.",
+    "filterAll": "Všichni",
+    "teams": {
+      "GTM": "GTM",
+      "AM": "AM",
+      "CS": "CS",
+      "Data": "Data",
+      "Ops": "Operations"
+    }
   },
   "day1": {
-    "title": "Tvůj Den 1",
-    "subtitle": "Takhle vypadá tvůj první den. Přijď zvědavý.",
-    "miniTask": "Celý den si všímej jedné věci, která tě překvapila z pohledu klienta. Na konci dne se o ni podělíš s týmem.",
-    "miniTaskLabel": "Tvůj mini-úkol",
-    "lunchNote": "Oběd s týmem — ptej se, prolomte ledy",
+    "title": "Cesta k prvnímu dni",
+    "scheduleTitle": "Tvůj první den",
+    "scheduleSubtitle": "Co tě v pondělí čeká. Přijď zvědavá.",
+    "practicalTitle": "Praktické info",
+    "practicalSubtitle": "Ať nemusíš nic řešit. Klikni a zjisti.",
+    "miniTaskLabel": "Malý úkol pro tebe",
+    "miniTask": "Všimni si během dne jednoho momentu, který tě překvapí z pohledu klienta. Na konci dne si to rozebereme.",
     "schedule": [
-      { "time": "9:00–9:30", "session": "Vítání & Icebreaker", "who": "Operations" },
-      { "time": "9:30–10:15", "session": "Jak získáváme klienty", "who": "Sales tým" },
-      { "time": "10:15–11:00", "session": "První kroky s klientem", "who": "KAM" },
-      { "time": "11:00–12:00", "session": "Strategie & OKRs", "who": "Senior KAM" },
-      { "time": "12:00–13:00", "session": "Oběd s týmem", "who": "Všichni" },
-      { "time": "13:00–13:45", "session": "Customer Success do hloubky", "who": "CS Leader" },
-      { "time": "13:45–14:30", "session": "Reporting & Analytika", "who": "Data tým" },
-      { "time": "14:30–16:00", "session": "Nastavení nástrojů & První pohled", "who": "Ops + Buddy" }
-    ]
-  },
-  "journey90": {
-    "title": "Tvoje 90denní cesta",
-    "subtitle": "Tři měsíce, tři rychlosti. Takhle to bude probíhat.",
-    "certified": "CERTIFIKOVANÝ",
-    "months": [
+      { "time": "9:00",  "session": "Káva a icebreaker",          "who": "Operations" },
+      { "time": "9:30",  "session": "Jak získáváme klienty",      "who": "Sales / GTM" },
+      { "time": "10:15", "session": "První kroky s klientem",     "who": "KAM" },
+      { "time": "11:00", "session": "Strategie & OKRs",           "who": "Senior KAM" },
+      { "time": "12:00", "session": "Oběd s týmem",               "who": "U nás chodí všichni společně" },
+      { "time": "13:00", "session": "Customer Success",           "who": "CS Leader" },
+      { "time": "13:45", "session": "Reporting & analytics",      "who": "Data team" },
+      { "time": "14:30", "session": "Setup tvých nástrojů",       "who": "Ops + buddy" },
+      { "time": "16:00", "session": "Jak to šlo? Feedback",       "who": "" }
+    ],
+    "practical": [
       {
-        "label": "Měsíc 1",
-        "period": "Dny 1–30",
-        "theme": "Uč se & Vstřebávej",
-        "goal": "Orientace, pozorování a první samostatné kroky.",
-        "milestones": [
-          "Sleduj seniornější KAM na klientských hovorech",
-          "Dokonči EXPANDO Academy moduly pro svoji roli",
-          "Postav 10+ leadů v pipeline",
-          "Uskutečni 2+ samostatné discovery meetingy",
-          "Odpovídej na jakýkoliv outreach do 2 hodin"
-        ],
-        "output": "Checkpoint Den 30: 10+ leadů, 2+ solo meetingy, rychlý follow-up návyk"
+        "icon": "map-pin",
+        "title": "Jak k nám dorazit",
+        "body": "EXPANDO HQ, Praha. Najdi nás v 5. patře. MHD zastávka 3 minuty pěšky. Pokud bloudíš, zavolej buddymu."
       },
       {
-        "label": "Měsíc 2",
-        "period": "Dny 31–60",
-        "theme": "Přispívej & Škáluj",
-        "goal": "Poloautonomie. Vlastníš konverzaci.",
-        "milestones": [
-          "Sestav a prezentuj vlastní cenové nabídky",
-          "Zvládej námitky samostatně",
-          "Veď 3+ meetingy týdně",
-          "Udržuj 15+ aktivních leadů v pipeline"
-        ],
-        "output": "Checkpoint Den 60: 15+ leadů, 3+ meetingy/týden, jistota v cenovkách"
+        "icon": "car",
+        "title": "Parkování",
+        "body": "Firemní parking na dvoře (řekni na recepci) nebo modrá zóna v okolí."
       },
       {
-        "label": "Měsíc 3",
-        "period": "Dny 61–90",
-        "theme": "Vlastni & Dodávej",
-        "goal": "Plná autonomie. První deal. Příspěvek ke knowledge base.",
-        "milestones": [
-          "Uzavři svůj první deal — samostatně",
-          "Projdi EXPANDO certifikací (≥80 % na týdenních testech)",
-          "Napiš alespoň jeden článek do Knowledge Base",
-          "Přispěj na team retrospektivě s daty podloženými insights"
-        ],
-        "output": "Den 90: CERTIFIKOVANÝ 🏅 + první uzavřený deal + KB příspěvek"
+        "icon": "shirt",
+        "title": "Jak se obléct",
+        "body": "Business casual. Mikina a sneakers jsou v pohodě. Klientské meetingy o level výš — buddy ti řekne."
+      },
+      {
+        "icon": "backpack",
+        "title": "Co si vzít",
+        "body": "Laptop dostaneš od nás. Přines si jen dobrou náladu a něco na psaní."
+      },
+      {
+        "icon": "coffee",
+        "title": "Káva & oběd",
+        "body": "V kuchyňce espresso, čaje, ovoce, Mattoni. Obědy většinou společně na Dvorku nebo Manifestu."
+      },
+      {
+        "icon": "home",
+        "title": "Home office & dovolená",
+        "body": "HO flexibilně po domluvě s leaderem. Přesné podmínky ve smlouvě, co jsi podepsala."
       }
     ]
   },
-  "tools": {
-    "title": "Nástroje, které budeš používat",
-    "subtitle": "Tvůj digitální pracovní prostor. Nastavení proběhne s buddym v Den 1.",
-    "ctaNote": "Přístup teď neřeš — buddy tě vším provede v Den 1.",
-    "items": [
-      { "name": "Slack", "desc": "Týmová komunikace — kde se všechno děje" },
-      { "name": "ClickUp", "desc": "Správa projektů a úkolů" },
-      { "name": "Notion", "desc": "Knowledge base — zde žije EXPANDO Academy" },
-      { "name": "Zoho Vault", "desc": "Správce hesel pro sdílené účty" },
-      { "name": "Seller Central", "desc": "Hlavní platforma Amazonu — tvůj každodenní nástroj" },
-      { "name": "EXPANDO APP", "desc": "Náš proprietární nástroj pro datovou synchronizaci" },
-      { "name": "Looker Studio", "desc": "Dashboardy a reporty" },
-      { "name": "Pipedrive", "desc": "CRM pro GTM / sales tým" },
-      { "name": "Missive", "desc": "Sdílená inbox pro account management" }
-    ]
+  "whyCool": {
+    "title": "Proč to bude fajn",
+    "subtitle": "Takhle jsme na tom právě teď.",
+    "statsLabel": "Naše čísla",
+    "techTitle": "Na tohle se budeš dívat každý den",
+    "techSubtitle": "Setup proběhne v Den 1 s buddym.",
+    "pullquote": "Nefungujeme na schvalování, ale na zodpovědnosti.",
+    "pullquoteSub": "U nás má každý prostor rozhodovat o své hromádce. Kontrolu si děláme navzájem přes výsledky, ne přes mikro-management."
   },
-  "glossary": {
-    "title": "Klíčové pojmy",
-    "subtitle": "Slovník EXPANDO. Tato slova budeš používat každý den.",
-    "searchPlaceholder": "Hledat pojmy…",
-    "noResults": "Žádné pojmy pro '{{query}}'",
-    "terms": [
-      { "term": "FBA", "def": "Fulfillment by Amazon — Amazon skladuje a posílá zboží. Nižší operační zátěž, vyšší poplatky." },
-      { "term": "FBM", "def": "Fulfillment by Merchant — prodejce skladuje a posílá. Větší kontrola, větší odpovědnost." },
-      { "term": "BuyBox", "def": "Tlačítko 'Přidat do košíku'. Vyhrát ho = získat prodej. Určuje cena, metriky prodejce a způsob plnění." },
-      { "term": "ACOS", "def": "Advertising Cost of Sales — (výdaje na reklamu ÷ příjmy z reklamy) × 100. Čím nižší, tím lépe (záleží na kontextu)." },
-      { "term": "TACOS", "def": "Total ACOS — (výdaje na reklamu ÷ celkové příjmy) × 100. Měří efektivitu reklamy vůči celkovým příjmům." },
-      { "term": "PPC", "def": "Pay-Per-Click — reklamní model Amazonu. Sponzorované produkty, značky, display." },
-      { "term": "SKU", "def": "Stock Keeping Unit — unikátní interní identifikátor každé varianty produktu." },
-      { "term": "ASIN", "def": "Amazon Standard Identification Number — unikátní ID produktu na Amazonu. Každý listing ho má." },
-      { "term": "EAN / GTIN", "def": "European Article Number / Global Trade Item Number — standardní čárový kód pro identifikaci produktu." },
-      { "term": "A+ Content", "def": "Vylepšený popis produktu s obrázky, srovnávacími tabulkami a příběhem značky. Zvyšuje konverzi." },
-      { "term": "Account Health", "def": "Dashboard Amazonu zobrazující soulad s pravidly. Udržujeme ho zelený — vždy." },
-      { "term": "ODR", "def": "Order Defect Rate — vrácenky, A-to-Z reklamace, zpětná účtování. Musí zůstat pod 1 %." },
-      { "term": "A-to-Z Claim", "def": "Reklamace kupujícího přímo u Amazonu, když prodejce problém nevyřešil. Závažné." },
-      { "term": "NPS", "def": "Net Promoter Score — jak pravděpodobně nás klient doporučí? Sledujeme čtvrtletně." },
-      { "term": "KAM", "def": "Key Account Manager — vlastní vztah s klientem od začátku do konce." },
-      { "term": "Onboarding", "def": "Proces nastavení nového klienta na Amazonu a dalších marketplace. Resell: 42 dní. PL: déle." },
-      { "term": "Ungating", "def": "Získání souhlasu k prodeji v omezených kategoriích Amazonu (např. Krása, Zdraví). Vyžaduje dokumentaci." },
-      { "term": "Listing", "def": "Produktová stránka na Amazonu. Název, odrážky, popis, obrázky, backendová klíčová slova — vše hraje roli." },
-      { "term": "Resell (EAN)", "def": "Náš model, kdy přeprodáváme existující značkové produkty. Identifikovány EAN/GTIN kódy." },
-      { "term": "Private Label (UNIQ)", "def": "Náš model budování vlastní značky klienta na Amazonu od základů." },
-      { "term": "OKR", "def": "Objectives and Key Results — způsob, jakým EXPANDO stanovuje a sleduje cíle čtvrtletně." }
-    ]
-  },
-  "support": {
-    "title": "Kdo tě podpoří",
-    "subtitle": "Nikdy nezůstaneš zaseklý bez pomoci. Tady je přehled, na koho se obrátit.",
-    "situation": "Situace",
-    "contact": "Kontakt",
-    "channel": "Kanál",
-    "rows": [
-      { "situation": "Cokoliv v prvních 4 týdnech", "contact": "Tvůj buddy", "channel": "Slack DM" },
-      { "situation": "Smluvní, HR nebo admin otázky", "contact": "Tvůj team leader", "channel": "Slack DM" },
-      { "situation": "Otázky k non-Amazon marketplace", "contact": "New MP tým", "channel": "#am-team-new-mp" },
-      { "situation": "Problémy s feedem nebo EXPANDO APP", "contact": "Tech tým", "channel": "Slack #tech" },
-      { "situation": "Well-being, kultura, osobní věci", "contact": "Operations", "channel": "Slack DM nebo osobně" }
-    ]
-  },
-  "prereading": {
-    "title": "Před Den 1",
-    "subtitle": "Nepovinné, ale stojí za to. Přijď s kontextem.",
-    "links": [
-      { "icon": "book-open", "label": "EXPANDO Sales Bible", "desc": "Strategický základ — jak přemýšlíme o prodeji" },
-      { "icon": "book", "label": "Sales Handbook 2025", "desc": "Praktický playbook pro prvních 90 dní" },
-      { "icon": "building-2", "label": "Team Hub (tvoje role)", "desc": "Onboarding materiály a procesy specifické pro tvoji roli" },
-      { "icon": "mail", "label": "Pre-onboarding Bulletin", "desc": "Originální bulletin, který jsi možná již obdržel" },
-      { "icon": "map", "label": "Resource Map", "desc": "Mapa všeho, co budeš potřebovat — specifická pro tvoji roli" }
-    ]
+  "journey90": {
+    "title": "Tvých 90 dní",
+    "subtitle": "Mapa, ne plán. Detailní týdenní úkoly ti bude posílat Slackbot od prvního dne.",
+    "months": [
+      {
+        "emoji": "📚",
+        "label": "Měsíc 1",
+        "theme": "Učím se a nasávám",
+        "goal": "Zorientovat se, poznat lidi, pochopit klienta.",
+        "understand": ["Typ klienta", "Marketplaces", "Kdo je kdo"],
+        "support": "Nikol + Dana"
+      },
+      {
+        "emoji": "🚀",
+        "label": "Měsíc 2",
+        "theme": "Přispívám a rostu",
+        "goal": "Dělat věci samostatně, první vlastní zodpovědnosti.",
+        "understand": ["Hloubka role", "Tvůj segment"],
+        "support": "1×/týden s Danou"
+      },
+      {
+        "emoji": "🏆",
+        "label": "Měsíc 3",
+        "theme": "Vedu svoje",
+        "goal": "Plná autonomie, první vlastní úspěchy.",
+        "understand": ["Dlouhodobý růst v roli"],
+        "support": "90-day review"
+      }
+    ],
+    "mapNote": "Detailní týdenní plán ti bude posílat Slackbot od prvního dne. Tady je jen mapa. 🗺️"
   },
   "cta": {
-    "title": "Těšíme se na tebe.",
-    "subtitle": "Nepotřebuješ mít všechny odpovědi před Den 1. Přijď zvědavý, buď otevřený a důvěřuj procesu. Máme tě.",
-    "signature": "Tým EXPANDO",
-    "videoComingSoon": "Uvítací zpráva od týmu — přijde brzy",
-    "videoPlay": "Přehrát uvítání",
-    "questionsLabel": "Otázky před nástupem?",
-    "questionsContact": "Napiš na people@expando.com",
+    "title": "Než přijdeš, zkus tohle",
+    "subtitle": "Tři akce. Odklikej si je a nebudeš už cizinec.",
+    "items": [
+      {
+        "id": "slack-buddy",
+        "icon": "slack",
+        "title": "Napiš buddymu",
+        "description": "Klikni a pozdrav {{buddy}} na Slacku. Neboj, ona už o tobě ví."
+      },
+      {
+        "id": "intro-general",
+        "icon": "megaphone",
+        "title": "Pošli 3 zajímavosti o sobě do #general",
+        "description": "Až se připojíš, pošli krátkou představovačku do Slacku #general. Fun fact, koníček, a co tě přivádí do EXPANDO."
+      },
+      {
+        "id": "social",
+        "icon": "instagram",
+        "title": "Podívej se, jak u nás žijeme",
+        "description": "Náš Instagram a LinkedIn ukazují, co se u nás děje."
+      }
+    ],
+    "slackButton": "Napiš na Slack",
+    "copyTemplate": "Zkopírovat template",
+    "copied": "Zkopírováno ✓",
+    "templateText": "Ahoj všichni! 👋 Jsem [jméno] a od [datum] jsem nová {{role}} v týmu {{team}}.\n\n3 věci o mně:\n• [fun fact]\n• [koníček]\n• [co tě přivádí do EXPANDO]\n\nTěším se na vás!",
+    "instagram": "Instagram",
     "linkedin": "LinkedIn",
-    "instagram": "Instagram"
+    "confettiMsg": "Parádo, jsi připravená!",
+    "allDone": "Hotovo! 🎉"
+  },
+  "outro": {
+    "title": "Těšíme se na tebe",
+    "subtitle": "Nemusíš mít všechny odpovědi. Přijď zvědavá, buď otevřená. My tě máme.",
+    "signature": "Tým EXPANDO",
+    "questionsLabel": "Otázky před nástupem?",
+    "questionsContact": "Napiš na"
+  },
+  "easterEgg": {
+    "title": "You found it! 🍕",
+    "body": "Ukaž tohle Nikol první den a oběd jde na ni.",
+    "codeLabel": "Tvůj kód:",
+    "close": "Super, zavřít"
   },
   "common": {
-    "learnMore": "Více informací",
     "close": "Zavřít",
-    "loading": "Načítám…",
-    "scrollToTop": "Zpět nahoru"
+    "loading": "Načítám…"
   }
 }

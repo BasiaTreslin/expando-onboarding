@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -10,154 +10,92 @@ interface HeroSectionProps {
   config: NewHireConfig;
 }
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-  isPast: boolean;
-  daysPast: number;
-}
-
-function getTimeLeft(startDateStr: string): TimeLeft {
-  const start = new Date(startDateStr).getTime();
-  const now = Date.now();
-  const diff = start - now;
-
-  if (diff <= 0) {
-    const daysPast = Math.floor(Math.abs(diff) / (1000 * 60 * 60 * 24));
-    return { days: 0, hours: 0, minutes: 0, seconds: 0, isPast: true, daysPast };
+function computeDaysUntil(startDateStr: string): { days: number; past: boolean; dayNumber: number } {
+  const start = new Date(startDateStr);
+  start.setHours(0, 0, 0, 0);
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  const diffMs = start.getTime() - now.getTime();
+  const days = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  if (days <= 0) {
+    return { days: 0, past: true, dayNumber: Math.abs(days) + 1 };
   }
-
-  return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((diff % (1000 * 60)) / 1000),
-    isPast: false,
-    daysPast: 0,
-  };
-}
-
-function CountdownBlock({ value, label }: { value: number; label: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <span className="text-4xl sm:text-5xl font-bold text-white tabular-nums leading-none">
-        {String(value).padStart(2, '0')}
-      </span>
-      <span className="text-xs sm:text-sm text-white/70 mt-1 uppercase tracking-wider">{label}</span>
-    </div>
-  );
+  return { days, past: false, dayNumber: 0 };
 }
 
 export function HeroSection({ config }: HeroSectionProps) {
-  const { t, language } = useLanguage();
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft(config.startDate));
-  const [mounted, setMounted] = useState(false);
+  const { t } = useLanguage();
 
-  useEffect(() => {
-    setMounted(true);
-    const interval = setInterval(() => {
-      setTimeLeft(getTimeLeft(config.startDate));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [config.startDate]);
+  const { days, past, dayNumber } = useMemo(() => computeDaysUntil(config.startDate), [config.startDate]);
 
-  const startDate = new Date(config.startDate);
-  const formattedDate = startDate.toLocaleDateString(language === 'cs' ? 'cs-CZ' : 'en-GB', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const headline = past
+    ? t('hero.alreadyStarted', { day: dayNumber })
+    : days === 0
+      ? t('hero.startsToday')
+      : days === 1
+        ? t('hero.startsTomorrow')
+        : t('hero.startsInDays', { days });
 
   const scrollDown = () => {
-    document.getElementById('profile')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('dna')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Background */}
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background photo */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/photos/team-laptop2.jpg"
-          alt="EXPANDO team"
+          alt="EXPANDO tým"
           fill
           className="object-cover object-center"
           priority
           fetchPriority="high"
-          onError={() => {}}
         />
-        <div className="absolute inset-0 bg-expando-gray-900/75" />
-        {/* Subtle orange gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-expando-orange/20 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-expando-gray-900/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-expando-gray-900/60 via-transparent to-transparent" />
       </div>
 
-      {/* Fallback gradient (shown when photo not present) */}
+      {/* Fallback gradient */}
       <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-expando-gray-900 via-[#1a0a00] to-expando-gray-900" />
 
-      <div className="relative z-10 section-container py-32 flex flex-col items-start">
-        {/* Welcome */}
-        <div className="animate-fade-in">
-          <p className="text-expando-orange font-medium text-lg sm:text-xl tracking-wide mb-2">
-            {t('hero.welcome')}
-          </p>
-          <h1 className="text-5xl sm:text-7xl font-bold text-white leading-tight mb-6">
-            {config.name}
+      <div className="relative z-10 section-container py-32 sm:py-40 w-full">
+        <div className="max-w-3xl animate-fade-in">
+          <h1 className="text-5xl sm:text-7xl font-bold text-white leading-[1.05] mb-6">
+            {t('hero.greeting', { name: config.firstName })}
+            <br />
+            <span className="text-expando-orange">{headline}</span>
           </h1>
-          <p className="text-white/80 text-lg sm:text-xl max-w-xl leading-relaxed mb-10">
-            {t('hero.tagline')}
+
+          <p className="text-xl sm:text-2xl text-white/90 font-medium mb-4 leading-snug">
+            {t('hero.subtitle')}
           </p>
+
+          <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-10 max-w-xl">
+            {t('hero.microcopy', { role: config.role, team: config.team })}
+          </p>
+
+          <button
+            onClick={scrollDown}
+            className="inline-flex items-center gap-2 text-expando-orange font-semibold text-lg
+                       hover:text-white transition-colors group"
+          >
+            {t('hero.cta')}
+            <ChevronDown
+              size={20}
+              className="transition-transform duration-300 group-hover:translate-y-1 animate-bounce"
+            />
+          </button>
         </div>
-
-        {/* Countdown / Journey indicator */}
-        {mounted && (
-          <div className="mb-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            {timeLeft.isPast ? (
-              <div className="bg-expando-orange/20 border border-expando-orange/40 rounded-2xl px-8 py-5">
-                <p className="text-white/70 text-sm mb-1">{t('hero.startDateLabel')} {formattedDate}</p>
-                <p className="text-white text-2xl font-bold">
-                  {t('hero.dayOfJourney', { n: timeLeft.daysPast + 1 })}
-                </p>
-              </div>
-            ) : (
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-8 py-5">
-                <p className="text-white/70 text-sm mb-4">
-                  {t('hero.startDateLabel')} <span className="text-white font-medium">{formattedDate}</span>
-                </p>
-                <div className="flex items-start gap-6 sm:gap-8">
-                  <CountdownBlock value={timeLeft.days} label={language === 'cs' ? 'dní' : 'days'} />
-                  <span className="text-white/50 text-3xl font-light mt-1">:</span>
-                  <CountdownBlock value={timeLeft.hours} label={language === 'cs' ? 'hodin' : 'hours'} />
-                  <span className="text-white/50 text-3xl font-light mt-1">:</span>
-                  <CountdownBlock value={timeLeft.minutes} label={language === 'cs' ? 'minut' : 'min'} />
-                  <span className="text-white/50 text-3xl font-light mt-1">:</span>
-                  <CountdownBlock value={timeLeft.seconds} label={language === 'cs' ? 'sekund' : 'sec'} />
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* CTA */}
-        <button
-          onClick={scrollDown}
-          className="btn-primary text-base animate-fade-in"
-          style={{ animationDelay: '0.4s' }}
-        >
-          {t('hero.cta')}
-          <ChevronDown size={18} />
-        </button>
       </div>
 
-      {/* Scroll hint */}
+      {/* Scroll hint at bottom */}
       <button
         onClick={scrollDown}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2
-                   text-white/50 hover:text-white transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/40 hover:text-white transition-colors"
         aria-label={t('hero.scrollHint')}
       >
-        <ChevronDown size={24} />
+        <ChevronDown size={24} className="animate-bounce" />
       </button>
     </section>
   );
