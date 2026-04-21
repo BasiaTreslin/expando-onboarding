@@ -1,17 +1,12 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getNewHireBySlug, getAllSlugs } from '@/data/newHires';
+import { getNewHireBySlug } from '@/data/newHires';
 import { OnboardingPage } from '@/components/OnboardingPage';
 
 export const revalidate = 60;
 
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  const slugs = await getAllSlugs();
-  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
