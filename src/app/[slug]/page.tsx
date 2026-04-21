@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const config = getNewHireBySlug(slug);
   if (!config) return { title: 'EXPANDO Onboarding' };
   return {
-    title: `Welcome, ${config.firstName} — EXPANDO Onboarding`,
-    description: `Your personalised onboarding guide for the first 90 days at EXPANDO, ${config.firstName}.`,
+    title: `Welcome, ${config.name} — EXPANDO Onboarding`,
+    description: `Your personalised onboarding guide for the first 90 days at EXPANDO, ${config.name}.`,
     robots: { index: false, follow: false },
   };
 }
