@@ -3,17 +3,20 @@ import type { Metadata } from 'next';
 import { getNewHireBySlug, getAllSlugs } from '@/data/newHires';
 import { OnboardingPage } from '@/components/OnboardingPage';
 
+export const revalidate = 60;
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const config = getNewHireBySlug(slug);
+  const config = await getNewHireBySlug(slug);
   if (!config) return { title: 'EXPANDO Onboarding' };
   return {
     title: `Welcome, ${config.name} — EXPANDO Onboarding`,
@@ -24,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SlugPage({ params }: Props) {
   const { slug } = await params;
-  const config = getNewHireBySlug(slug);
+  const config = await getNewHireBySlug(slug);
   if (!config) notFound();
   return <OnboardingPage config={config} />;
 }

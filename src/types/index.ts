@@ -35,5 +35,5 @@ export interface NewHireConfig {
   customDay1Schedule?: Day1Session[];
   hasWelcomeVideo?: boolean;
   welcomeVideoUrl?: string;
-  credentials: Credentials;
+  credentials?: Credentials;
 }
