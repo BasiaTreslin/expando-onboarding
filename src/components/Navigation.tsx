@@ -1,17 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, LogOut } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import type { Language } from '@/types';
 
 const NAV_ITEMS = [
-  { key: 'nav.dna', anchor: 'dna' },
-  { key: 'nav.tribe', anchor: 'tribe' },
+  { key: 'nav.profile', anchor: 'profile' },
+  { key: 'nav.story', anchor: 'story' },
+  { key: 'nav.values', anchor: 'values' },
   { key: 'nav.day1', anchor: 'day-1' },
-  { key: 'nav.whyCool', anchor: 'why-cool' },
-  { key: 'nav.journey', anchor: '90-days' },
-  { key: 'nav.cta', anchor: 'cta' },
+  { key: 'nav.90days', anchor: '90-days' },
+  { key: 'nav.tools', anchor: 'tools' },
 ];
 
 export function Navigation() {
@@ -46,15 +46,7 @@ export function Navigation() {
   };
 
   const toggleLang = () => {
-    setLanguage((language === 'cs' ? 'en' : 'cs') as Language);
-  };
-
-  const logout = async () => {
-    try {
-      await fetch('/api/logout', { method: 'POST' });
-    } finally {
-      window.location.href = '/login';
-    }
+    setLanguage((language === 'en' ? 'cs' : 'en') as Language);
   };
 
   return (
@@ -67,16 +59,17 @@ export function Navigation() {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16">
+          {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`font-bold text-xl tracking-tight transition-colors ${
-              scrolled ? 'text-expando-gray-900 hover:text-expando-orange' : 'text-white hover:text-expando-orange'
-            }`}
+            className="font-bold text-xl tracking-tight text-expando-gray-900 hover:text-expando-orange transition-colors"
+            aria-label="EXPANDO — scroll to top"
           >
             EXPANDO
           </button>
 
-          <div className="hidden lg:flex items-center gap-1">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.anchor}
@@ -84,58 +77,36 @@ export function Navigation() {
                 className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                   activeSection === item.anchor
                     ? 'text-expando-orange bg-expando-orange-soft'
-                    : scrolled
-                      ? 'text-expando-gray-600 hover:text-expando-gray-900 hover:bg-expando-gray-50'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                    : 'text-expando-gray-600 hover:text-expando-gray-900 hover:bg-expando-gray-50'
                 }`}
               >
                 {t(item.key)}
               </button>
             ))}
 
+            {/* Language switcher */}
             <button
               onClick={toggleLang}
-              className={`ml-2 px-3 py-2 text-sm font-medium border rounded-lg transition-colors ${
-                scrolled
-                  ? 'border-expando-gray-200 text-expando-gray-600 hover:border-expando-orange hover:text-expando-orange'
-                  : 'border-white/30 text-white/80 hover:border-white hover:text-white'
-              }`}
+              className="ml-2 px-3 py-2 text-sm font-medium border border-expando-gray-200 rounded-lg
+                         text-expando-gray-600 hover:border-expando-orange hover:text-expando-orange transition-colors"
+              aria-label="Switch language"
             >
               {t('nav.switchLang')}
             </button>
-
-            <button
-              onClick={logout}
-              className={`ml-1 p-2 rounded-lg transition-colors ${
-                scrolled
-                  ? 'text-expando-gray-600 hover:text-expando-orange hover:bg-expando-gray-50'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-              aria-label="Log out"
-              title="Log out"
-            >
-              <LogOut size={16} />
-            </button>
           </div>
 
-          <div className="flex lg:hidden items-center gap-2">
+          {/* Mobile: lang + hamburger */}
+          <div className="flex md:hidden items-center gap-2">
             <button
               onClick={toggleLang}
-              className={`px-3 py-1.5 text-xs font-medium border rounded-lg transition-colors ${
-                scrolled
-                  ? 'border-expando-gray-200 text-expando-gray-600 hover:border-expando-orange hover:text-expando-orange'
-                  : 'border-white/30 text-white/80 hover:border-white hover:text-white'
-              }`}
+              className="px-3 py-1.5 text-xs font-medium border border-expando-gray-200 rounded-lg
+                         text-expando-gray-600 hover:border-expando-orange hover:text-expando-orange transition-colors"
             >
               {t('nav.switchLang')}
             </button>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={`p-2 rounded-lg transition-colors ${
-                scrolled
-                  ? 'text-expando-gray-600 hover:bg-expando-gray-50'
-                  : 'text-white hover:bg-white/10'
-              }`}
+              className="p-2 rounded-lg text-expando-gray-600 hover:bg-expando-gray-50 transition-colors"
               aria-label="Toggle menu"
             >
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -144,8 +115,9 @@ export function Navigation() {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-expando-gray-200 shadow-lg">
+        <div className="md:hidden bg-white border-t border-expando-gray-200 shadow-lg">
           <div className="section-container py-3 flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <button
@@ -160,13 +132,6 @@ export function Navigation() {
                 {t(item.key)}
               </button>
             ))}
-            <button
-              onClick={logout}
-              className="text-left px-4 py-3 text-sm font-medium rounded-lg text-expando-gray-600 hover:bg-expando-gray-50 flex items-center gap-2"
-            >
-              <LogOut size={14} />
-              Log out
-            </button>
           </div>
         </div>
       )}
