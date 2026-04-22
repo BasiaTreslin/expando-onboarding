@@ -1,53 +1,12 @@
 'use client';
 
-import { Briefcase, Users, Calendar, User, Shield, ExternalLink, MapPin } from 'lucide-react';
+import { Briefcase, Users, Calendar, Shield, MapPin } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
-import type { NewHireConfig, PersonInfo } from '@/types';
+import type { NewHireConfig } from '@/types';
 
 interface ProfileSectionProps {
   config: NewHireConfig;
-}
-
-function getInitials(name: string): string {
-  return name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-}
-
-function PersonCard({ person, label }: { person: PersonInfo; label: string }) {
-  return (
-    <div className="flex items-center gap-3">
-      <div className="avatar-circle text-sm">
-        {person.photo ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={person.photo} alt={person.name} className="w-full h-full rounded-full object-cover" />
-        ) : (
-          getInitials(person.name)
-        )}
-      </div>
-      <div className="min-w-0">
-        <p className="text-xs text-expando-gray-600 font-medium uppercase tracking-wide">{label}</p>
-        <div className="flex items-center gap-1 mt-0.5">
-          <p className="font-semibold text-expando-gray-900 truncate">{person.name}</p>
-          {person.linkedin && (
-            <a
-              href={person.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-expando-gray-600 hover:text-expando-orange transition-colors flex-shrink-0"
-              aria-label={`${person.name} on LinkedIn`}
-            >
-              <ExternalLink size={13} />
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
-  );
 }
 
 interface InfoRowProps {
@@ -108,7 +67,7 @@ export function ProfileSection({ config }: ProfileSectionProps) {
               </div>
 
               {/* Info grid */}
-              <div className="grid sm:grid-cols-2 gap-0 sm:gap-x-8 mb-6">
+              <div className="grid sm:grid-cols-2 gap-0 sm:gap-x-8">
                 <div>
                   <InfoRow
                     icon={<Briefcase size={15} />}
@@ -137,16 +96,6 @@ export function ProfileSection({ config }: ProfileSectionProps) {
                     label="Location"
                     value={t('profile.officeAddress')}
                   />
-                </div>
-              </div>
-
-              {/* People */}
-              <div className="grid sm:grid-cols-2 gap-4 pt-2">
-                <div className="bg-expando-gray-50 rounded-xl p-4">
-                  <PersonCard person={config.buddy} label={t('profile.buddy')} />
-                </div>
-                <div className="bg-expando-gray-50 rounded-xl p-4">
-                  <PersonCard person={config.teamLeader} label={t('profile.teamLeader')} />
                 </div>
               </div>
             </div>

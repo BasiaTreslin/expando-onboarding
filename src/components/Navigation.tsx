@@ -7,6 +7,7 @@ import type { Language } from '@/types';
 
 const NAV_ITEMS = [
   { key: 'nav.profile', anchor: 'profile' },
+  { key: 'nav.team', anchor: 'team' },
   { key: 'nav.story', anchor: 'story' },
   { key: 'nav.values', anchor: 'values' },
   { key: 'nav.day1', anchor: 'day-1' },

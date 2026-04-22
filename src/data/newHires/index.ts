@@ -1,4 +1,4 @@
-import type { ContractType, Language, NewHireConfig, RoleKey } from '@/types';
+import type { ContractType, Language, NewHireConfig, RoleKey, TeamMember } from '@/types';
 import { getSupabaseAdmin } from '@/lib/supabase/admin';
 
 interface HireRow {
@@ -25,19 +25,58 @@ const PUBLIC_COLUMNS =
   'team_leader_name, team_leader_linkedin, team_leader_photo, ' +
   'buddy_name, buddy_linkedin, buddy_photo, resource_map_url';
 
+// TEMP: TS overlay for enriched leader/buddy/teamId until Supabase
+// schema adds these fields
+interface HireOverlay {
+  leader: TeamMember;
+  buddy: TeamMember;
+  teamId: string;
+}
+
+const HIRE_OVERLAYS: Record<string, HireOverlay> = {
+  'barbara-treslinova': {
+    leader: {
+      id: 'dana-kovacik',
+      name: 'Dana Kováčik',
+      role: 'COO',
+      photo: '/team/dana-kovacik.png',
+      email: 'dana.kovacik@expan.do',
+    },
+    buddy: {
+      id: 'nikol-cerna',
+      name: 'Nikol Černá',
+      role: 'Operations & Project Manager',
+      photo: '/team/nikol-cerna.jpg',
+      email: 'nikol@expan.do',
+    },
+    teamId: 'resell-team',
+  },
+};
+
+function slugifyName(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 function rowToConfig(row: HireRow): NewHireConfig {
-  const teamLeader = {
+  const leaderFromRow: TeamMember = {
+    id: slugifyName(row.team_leader_name),
     name: row.team_leader_name,
-    linkedin: row.team_leader_linkedin ?? undefined,
     photo: row.team_leader_photo ?? undefined,
   };
-  const buddy = row.buddy_name
+  const buddyFromRow: TeamMember = row.buddy_name
     ? {
+        id: slugifyName(row.buddy_name),
         name: row.buddy_name,
-        linkedin: row.buddy_linkedin ?? undefined,
         photo: row.buddy_photo ?? undefined,
       }
-    : teamLeader;
+    : leaderFromRow;
+
+  const overlay = HIRE_OVERLAYS[row.slug];
 
   return {
     slug: row.slug,
@@ -49,8 +88,9 @@ function rowToConfig(row: HireRow): NewHireConfig {
     startDate: row.start_date,
     contractType: row.contract_type,
     language: row.language,
-    teamLeader,
-    buddy,
+    leader: overlay?.leader ?? leaderFromRow,
+    buddy: overlay?.buddy ?? buddyFromRow,
+    teamId: overlay?.teamId,
     resourceMapUrl: row.resource_map_url ?? undefined,
   };
 }

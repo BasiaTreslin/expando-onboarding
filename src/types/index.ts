@@ -1,9 +1,3 @@
-export interface PersonInfo {
-  name: string;
-  photo?: string;
-  linkedin?: string;
-}
-
 export interface Credentials {
   username: string;
   password: string;
@@ -19,6 +13,25 @@ export interface Day1Session {
   who: string;
 }
 
+export interface TeamMember {
+  id: string;
+  name: string;
+  role?: string;
+  photo?: string;
+  location?: string;
+  email?: string;
+  bio?: string;
+  personal?: string;
+  quote?: string;
+}
+
+export interface Team {
+  id: string;
+  name: string;
+  tagline?: string;
+  members: TeamMember[];
+}
+
 export interface NewHireConfig {
   slug: string;
   name: string;
@@ -27,8 +40,9 @@ export interface NewHireConfig {
   roleKey?: RoleKey;
   team: string;
   startDate: string; // ISO 8601
-  buddy: PersonInfo;
-  teamLeader: PersonInfo;
+  buddy: TeamMember;
+  leader: TeamMember;
+  teamId?: string;
   contractType: ContractType;
   language: Language;
   resourceMapUrl?: string;

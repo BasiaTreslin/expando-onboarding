@@ -20,7 +20,7 @@ export function SupportContactsSection({ config }: SupportContactsProps) {
   // Inject buddy and leader names into first two rows
   const rows = (messages.support.rows as SupportRow[]).map((row, i) => {
     if (i === 0) return { ...row, contact: config.buddy.name };
-    if (i === 1) return { ...row, contact: config.teamLeader.name };
+    if (i === 1) return { ...row, contact: config.leader.name };
     return row;
   });
 

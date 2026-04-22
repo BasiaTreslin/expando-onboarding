@@ -1,6 +1,7 @@
 {
   "nav": {
     "profile": "Your Profile",
+    "team": "Team",
     "story": "Our Story",
     "values": "Values",
     "services": "Services",
@@ -28,6 +29,7 @@
     "startTime": "9:00 AM",
     "buddy": "Your Buddy",
     "teamLeader": "Team Leader",
+    "_deprecated": "profile.buddy and profile.teamLeader — unused after ProfileSection refactor, safe to remove in follow-up",
     "contractType": "Contract Type",
     "linkedinProfile": "LinkedIn",
     "officeAddress": "Expando HQ, Praha"
