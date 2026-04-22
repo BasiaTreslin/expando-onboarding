@@ -1,75 +1,90 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
+import {
+  getJourneyState,
+  getStateForDays,
+  type JourneyInfo,
+} from '@/lib/journey';
+import { heroCopy, renderSubtext } from '@/content/heroCopy';
 import type { NewHireConfig } from '@/types';
 
 interface HeroSectionProps {
   config: NewHireConfig;
 }
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-  isPast: boolean;
-  daysPast: number;
+function parsePreviewDay(raw: string | null): number | null {
+  if (raw === null) return null;
+  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') return null;
+  const n = Number.parseInt(raw, 10);
+  if (!Number.isFinite(n)) return null;
+  return n;
 }
 
-function getTimeLeft(startDateStr: string): TimeLeft {
-  const start = new Date(startDateStr).getTime();
-  const now = Date.now();
-  const diff = start - now;
-
-  if (diff <= 0) {
-    const daysPast = Math.floor(Math.abs(diff) / (1000 * 60 * 60 * 24));
-    return { days: 0, hours: 0, minutes: 0, seconds: 0, isPast: true, daysPast };
-  }
-
+function applyPreviewOverride(base: JourneyInfo, previewDay: number | null): JourneyInfo {
+  if (previewDay === null) return base;
   return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-    seconds: Math.floor((diff % (1000 * 60)) / 1000),
-    isPast: false,
-    daysPast: 0,
+    state: getStateForDays(previewDay),
+    daysSinceStart: previewDay,
+    daysUntilStart: -previewDay,
+    isFallback: base.isFallback,
   };
-}
-
-function CountdownBlock({ value, label }: { value: number; label: string }) {
-  return (
-    <div className="flex flex-col items-center">
-      <span className="text-4xl sm:text-5xl font-bold text-white tabular-nums leading-none">
-        {String(value).padStart(2, '0')}
-      </span>
-      <span className="text-xs sm:text-sm text-white/70 mt-1 uppercase tracking-wider">{label}</span>
-    </div>
-  );
 }
 
 export function HeroSection({ config }: HeroSectionProps) {
   const { t, language } = useLanguage();
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft(config.startDate));
   const [mounted, setMounted] = useState(false);
+  const [previewDay, setPreviewDay] = useState<number | null>(null);
 
   useEffect(() => {
     setMounted(true);
-    const interval = setInterval(() => {
-      setTimeLeft(getTimeLeft(config.startDate));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [config.startDate]);
+    const raw = new URLSearchParams(window.location.search).get('previewDay');
+    setPreviewDay(parsePreviewDay(raw));
+  }, []);
 
-  const startDate = new Date(config.startDate);
-  const formattedDate = startDate.toLocaleDateString(language === 'cs' ? 'cs-CZ' : 'en-GB', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const info = useMemo<JourneyInfo>(
+    () => applyPreviewOverride(getJourneyState(config.startDate), previewDay),
+    [config.startDate, previewDay],
+  );
+
+  useEffect(() => {
+    if (info.isFallback && mounted) {
+      console.warn(
+        `[HeroSection] Missing or invalid startDate for "${config.slug}"; falling back to week-1 state.`,
+      );
+    }
+  }, [info.isFallback, mounted, config.slug]);
+
+  const copy = heroCopy[info.state][language];
+  const subtext = renderSubtext(copy.subtext, Math.abs(info.daysUntilStart));
+
+  const startDateObj = config.startDate ? new Date(config.startDate) : null;
+  const formattedDate =
+    !startDateObj || info.isFallback || Number.isNaN(startDateObj.getTime())
+      ? ''
+      : startDateObj.toLocaleDateString(language === 'cs' ? 'cs-CZ' : 'en-GB', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        });
+
+  const isPreStart = info.state.startsWith('pre-start');
+  const dayNumber = info.daysSinceStart + 1;
+
+  let counterPrimary: string;
+  if (info.state === 'pre-start-tomorrow') {
+    counterPrimary = t('hero.startsTomorrow');
+  } else if (isPreStart) {
+    counterPrimary = t('hero.startingInDays', { n: info.daysUntilStart });
+  } else if (info.state === 'graduated') {
+    counterPrimary = t('hero.dayOnboardingComplete', { n: dayNumber });
+  } else {
+    counterPrimary = t('hero.dayOfJourney', { n: dayNumber });
+  }
 
   const scrollDown = () => {
     document.getElementById('profile')?.scrollIntoView({ behavior: 'smooth' });
@@ -77,7 +92,6 @@ export function HeroSection({ config }: HeroSectionProps) {
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/photos/team-laptop2.jpg"
@@ -89,57 +103,44 @@ export function HeroSection({ config }: HeroSectionProps) {
           onError={() => {}}
         />
         <div className="absolute inset-0 bg-expando-gray-900/75" />
-        {/* Subtle orange gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-expando-orange/20 via-transparent to-transparent" />
       </div>
 
-      {/* Fallback gradient (shown when photo not present) */}
       <div className="absolute inset-0 z-[-1] bg-gradient-to-br from-expando-gray-900 via-[#1a0a00] to-expando-gray-900" />
 
       <div className="relative z-10 section-container py-32 flex flex-col items-start">
-        {/* Welcome */}
         <div className="animate-fade-in">
           <p className="text-expando-orange font-medium text-lg sm:text-xl tracking-wide mb-2">
-            {t('hero.welcome')}
+            {mounted ? copy.kicker : '\u00A0'}
           </p>
           <h1 className="text-5xl sm:text-7xl font-bold text-white leading-tight mb-6">
             {config.name}
           </h1>
           <p className="text-white/80 text-lg sm:text-xl max-w-xl leading-relaxed mb-10">
-            {t('hero.tagline')}
+            {mounted ? subtext : '\u00A0'}
           </p>
         </div>
 
-        {/* Countdown / Journey indicator */}
         {mounted && (
           <div className="mb-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            {timeLeft.isPast ? (
-              <div className="bg-expando-orange/20 border border-expando-orange/40 rounded-2xl px-8 py-5">
-                <p className="text-white/70 text-sm mb-1">{t('hero.startDateLabel')} {formattedDate}</p>
-                <p className="text-white text-2xl font-bold">
-                  {t('hero.dayOfJourney', { n: timeLeft.daysPast + 1 })}
+            <div
+              className={
+                isPreStart
+                  ? 'bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-8 py-5'
+                  : 'bg-expando-orange/20 border border-expando-orange/40 rounded-2xl px-8 py-5'
+              }
+            >
+              {formattedDate && (
+                <p className="text-white/70 text-sm mb-1">
+                  {t('hero.startDateLabel')}{' '}
+                  <span className="text-white font-medium">{formattedDate}</span>
                 </p>
-              </div>
-            ) : (
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-8 py-5">
-                <p className="text-white/70 text-sm mb-4">
-                  {t('hero.startDateLabel')} <span className="text-white font-medium">{formattedDate}</span>
-                </p>
-                <div className="flex items-start gap-6 sm:gap-8">
-                  <CountdownBlock value={timeLeft.days} label={language === 'cs' ? 'dní' : 'days'} />
-                  <span className="text-white/50 text-3xl font-light mt-1">:</span>
-                  <CountdownBlock value={timeLeft.hours} label={language === 'cs' ? 'hodin' : 'hours'} />
-                  <span className="text-white/50 text-3xl font-light mt-1">:</span>
-                  <CountdownBlock value={timeLeft.minutes} label={language === 'cs' ? 'minut' : 'min'} />
-                  <span className="text-white/50 text-3xl font-light mt-1">:</span>
-                  <CountdownBlock value={timeLeft.seconds} label={language === 'cs' ? 'sekund' : 'sec'} />
-                </div>
-              </div>
-            )}
+              )}
+              <p className="text-white text-2xl font-bold">{counterPrimary}</p>
+            </div>
           </div>
         )}
 
-        {/* CTA */}
         <button
           onClick={scrollDown}
           className="btn-primary text-base animate-fade-in"
@@ -150,7 +151,6 @@ export function HeroSection({ config }: HeroSectionProps) {
         </button>
       </div>
 
-      {/* Scroll hint */}
       <button
         onClick={scrollDown}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2

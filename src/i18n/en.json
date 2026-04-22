@@ -11,13 +11,12 @@
     "switchLang": "CZ"
   },
   "hero": {
-    "welcome": "Welcome,",
-    "daysUntil": "days until your start",
-    "hoursUntil": "hours until your start",
     "dayOfJourney": "Day {{n}} of your journey",
+    "dayOnboardingComplete": "Day {{n}} — onboarding complete",
+    "startingInDays": "Starting in {{n}} days",
+    "startsTomorrow": "Starts tomorrow",
     "startDateLabel": "Start date:",
     "cta": "Explore your guide",
-    "tagline": "You're reading this because in a few days you'll be joining our team. This is your map for the first 90 days.",
     "scrollHint": "Scroll to begin"
   },
   "profile": {

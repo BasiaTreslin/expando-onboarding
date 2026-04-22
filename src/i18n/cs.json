@@ -11,13 +11,12 @@
     "switchLang": "EN"
   },
   "hero": {
-    "welcome": "Vítej,",
-    "daysUntil": "dní do startu",
-    "hoursUntil": "hodin do startu",
     "dayOfJourney": "Den {{n}} tvé cesty",
+    "dayOnboardingComplete": "Den {{n}} — onboarding dokončen",
+    "startingInDays": "Za {{n}} dní",
+    "startsTomorrow": "Začínáš zítra",
     "startDateLabel": "Datum nástupu:",
     "cta": "Projít průvodcem",
-    "tagline": "Čteš toto proto, že za pár dní se staneš součástí našeho týmu. Toto je tvá mapa pro prvních 90 dní.",
     "scrollHint": "Rolovat dolů"
   },
   "profile": {
