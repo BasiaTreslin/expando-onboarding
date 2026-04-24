@@ -3,6 +3,7 @@
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { Navigation } from '@/components/Navigation';
 import { TasksIntroBanner } from '@/components/TasksIntroBanner';
+import { CelebrationPreview } from '@/components/CelebrationPreview';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProfileSection } from '@/components/sections/ProfileSection';
 import { MeetTheTeamSection } from '@/components/sections/MeetTheTeamSection';
@@ -46,6 +47,7 @@ export function OnboardingPage({ config }: OnboardingPageProps) {
         <PreReadingSection config={config} />
         <FinalCTASection config={config} />
       </main>
+      <CelebrationPreview config={config} />
     </LanguageProvider>
   );
 }
