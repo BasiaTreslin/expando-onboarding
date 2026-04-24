@@ -68,6 +68,10 @@ const HIRE_OVERLAYS: Record<string, HireOverlay> = {
         descriptionKey: 'profileTasks.questionnaire.description',
         actionLabelKey: 'profileTasks.questionnaire.actionLabel',
         actionUrl: 'https://docs.google.com/document/d/14N7mseqD32voYPpaRYbL14Y2aJClScvk/edit',
+        completable: true,
+        // TEMP: using Ilona's video for Barbara's test until Lukáš records his own
+        celebrationMediaUrl: '/reactions/ilona-medova.mp4',
+        celebrationPoster: '/reactions/ilona-medova-poster.jpg',
       },
     ],
   },

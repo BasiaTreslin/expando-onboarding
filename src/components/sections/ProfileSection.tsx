@@ -4,6 +4,7 @@ import { Briefcase, Users, Calendar, Shield, MapPin } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { ProfileTaskCard } from '@/components/ProfileTaskCard';
+import { TasksProgress } from '@/components/TasksProgress';
 import type { NewHireConfig } from '@/types';
 
 interface ProfileSectionProps {
@@ -104,8 +105,15 @@ export function ProfileSection({ config }: ProfileSectionProps) {
 
           {/* Profile tasks — e.g. personal questionnaire */}
           {config.profileTasks && config.profileTasks.length > 0 && (
-            <div className="mt-6">
-              <ProfileTaskCard tasks={config.profileTasks} />
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center justify-end">
+                <TasksProgress slug={config.slug} tasks={config.profileTasks} />
+              </div>
+              <ProfileTaskCard
+                tasks={config.profileTasks}
+                slug={config.slug}
+                firstName={config.name}
+              />
             </div>
           )}
         </div>

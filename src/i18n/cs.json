@@ -324,5 +324,24 @@
     "close": "Zavřít",
     "loading": "Načítám…",
     "scrollToTop": "Zpět nahoru"
+  },
+  "gamification": {
+    "banner": {
+      "message": "Máme pro tebe pár úkolů, které ti pomůžou se u nás rychle rozkoukat. Projdi si je v klidu, ať víš, co a jak.",
+      "dismiss": "Jasný, díky"
+    },
+    "task": {
+      "markDone": "Označit jako hotové",
+      "completed": "Hotovo"
+    },
+    "progress": {
+      "inProgress": "{{done}} / {{total}} úkolů",
+      "allDone": "Všechny úkoly hotové!"
+    },
+    "modal": {
+      "title": "Skvělá práce, {{firstName}}!",
+      "defaultMessage": "Úkol splněn.",
+      "close": "Super, jdu dál"
+    }
   }
 }

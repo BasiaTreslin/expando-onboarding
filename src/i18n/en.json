@@ -324,5 +324,24 @@
     "close": "Close",
     "loading": "Loading…",
     "scrollToTop": "Back to top"
+  },
+  "gamification": {
+    "banner": {
+      "message": "We've put together a few tasks to help you settle in quickly. Take them at your own pace — no pressure.",
+      "dismiss": "Got it, thanks"
+    },
+    "task": {
+      "markDone": "Mark as done",
+      "completed": "Completed"
+    },
+    "progress": {
+      "inProgress": "{{done}} / {{total}} tasks",
+      "allDone": "All tasks done!"
+    },
+    "modal": {
+      "title": "Great job, {{firstName}}!",
+      "defaultMessage": "Task completed.",
+      "close": "Thanks, continuing"
+    }
   }
 }

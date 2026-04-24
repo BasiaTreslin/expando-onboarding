@@ -41,6 +41,10 @@ export interface ProfileTask {
   descriptionKey: string;
   actionLabelKey: string;
   actionUrl: string;
+  completable?: boolean;
+  celebrationMediaUrl?: string;
+  celebrationPoster?: string;
+  celebrationMessageKey?: string;
 }
 
 export interface NewHireConfig {

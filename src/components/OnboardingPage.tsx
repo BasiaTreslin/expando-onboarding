@@ -2,6 +2,7 @@
 
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { Navigation } from '@/components/Navigation';
+import { TasksIntroBanner } from '@/components/TasksIntroBanner';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProfileSection } from '@/components/sections/ProfileSection';
 import { MeetTheTeamSection } from '@/components/sections/MeetTheTeamSection';
@@ -23,10 +24,13 @@ interface OnboardingPageProps {
 }
 
 export function OnboardingPage({ config }: OnboardingPageProps) {
+  const hasTasks = !!(config.profileTasks && config.profileTasks.length > 0);
+
   return (
     <LanguageProvider defaultLanguage={config.language}>
       <Navigation />
       <main>
+        <TasksIntroBanner slug={config.slug} hasTasks={hasTasks} />
         <HeroSection config={config} />
         <ProfileSection config={config} />
         <MeetTheTeamSection config={config} />
