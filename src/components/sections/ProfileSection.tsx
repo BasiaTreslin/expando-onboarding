@@ -3,6 +3,7 @@
 import { Briefcase, Users, Calendar, Shield, MapPin } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
+import { ProfileTaskCard } from '@/components/ProfileTaskCard';
 import type { NewHireConfig } from '@/types';
 
 interface ProfileSectionProps {
@@ -100,6 +101,13 @@ export function ProfileSection({ config }: ProfileSectionProps) {
               </div>
             </div>
           </div>
+
+          {/* Profile tasks — e.g. personal questionnaire */}
+          {config.profileTasks && config.profileTasks.length > 0 && (
+            <div className="mt-6">
+              <ProfileTaskCard tasks={config.profileTasks} />
+            </div>
+          )}
         </div>
       </div>
     </SectionWrapper>

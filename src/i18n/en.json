@@ -34,6 +34,23 @@
     "linkedinProfile": "LinkedIn",
     "officeAddress": "Expando HQ, Praha"
   },
+  "profileTasks": {
+    "questionnaire": {
+      "title": "Fill out the personal questionnaire",
+      "description": "Basic details for HR + payroll. Takes about 5 minutes.",
+      "actionLabel": "Open questionnaire"
+    }
+  },
+  "sayHi": {
+    "title": "Say hi",
+    "tabBuddy": "Message your buddy",
+    "tabLeader": "Message your leader",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "openSlack": "Open in Slack",
+    "templateBuddy": "Hi {buddyName}, I'm {name}, starting {startDate} as {role}. Looking forward to it! Could we do a quick catch-up on day one?",
+    "templateLeader": "Hi {leaderName}, I'm {name}, starting {startDate} as {role}. Looking forward to our first 1:1 — let me know when works for you."
+  },
   "story": {
     "title": "Our Story",
     "subtitle": "From one Metallica t-shirt to a top 20% Amazon agency — globally.",

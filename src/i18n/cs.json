@@ -34,6 +34,23 @@
     "linkedinProfile": "LinkedIn",
     "officeAddress": "EXPANDO HQ, Praha"
   },
+  "profileTasks": {
+    "questionnaire": {
+      "title": "Vyplň osobní dotazník",
+      "description": "Základní údaje pro HR a mzdovou. Zabere 5 minut.",
+      "actionLabel": "Otevřít dotazník"
+    }
+  },
+  "sayHi": {
+    "title": "Napiš jim",
+    "tabBuddy": "Napiš buddymu",
+    "tabLeader": "Napiš leaderovi",
+    "copy": "Zkopírovat",
+    "copied": "Zkopírováno!",
+    "openSlack": "Otevřít Slack",
+    "templateBuddy": "Ahoj {buddyName}, jsem {name}, nastupuju {startDate} jako {role}. Těším se na spolupráci! Mohli bychom si dát krátký catch-up první den ráno?",
+    "templateLeader": "Ahoj {leaderName}, jsem {name}, nastupuju {startDate} jako {role}. Těším se na náš první 1:1 — dej vědět, kdy ti to sedne."
+  },
   "story": {
     "title": "Náš příběh",
     "subtitle": "Od jednoho Metallica trička k top 20 % Amazon agentur na světě.",

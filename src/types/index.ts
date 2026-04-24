@@ -20,6 +20,7 @@ export interface TeamMember {
   photo?: string;
   location?: string;
   email?: string;
+  slackUserId?: string;
   bio?: string;
   personal?: string;
   quote?: string;
@@ -29,7 +30,17 @@ export interface Team {
   id: string;
   name: string;
   tagline?: string;
+  taglineEn?: string;
   members: TeamMember[];
+}
+
+export interface ProfileTask {
+  id: string;
+  icon?: string;
+  titleKey: string;
+  descriptionKey: string;
+  actionLabelKey: string;
+  actionUrl: string;
 }
 
 export interface NewHireConfig {
@@ -43,6 +54,7 @@ export interface NewHireConfig {
   buddy: TeamMember;
   leader: TeamMember;
   teamId?: string;
+  profileTasks?: ProfileTask[];
   contractType: ContractType;
   language: Language;
   resourceMapUrl?: string;

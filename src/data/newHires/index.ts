@@ -1,4 +1,11 @@
-import type { ContractType, Language, NewHireConfig, RoleKey, TeamMember } from '@/types';
+import type {
+  ContractType,
+  Language,
+  NewHireConfig,
+  ProfileTask,
+  RoleKey,
+  TeamMember,
+} from '@/types';
 import { getSupabaseAdmin } from '@/lib/supabase/admin';
 
 interface HireRow {
@@ -25,31 +32,44 @@ const PUBLIC_COLUMNS =
   'team_leader_name, team_leader_linkedin, team_leader_photo, ' +
   'buddy_name, buddy_linkedin, buddy_photo, resource_map_url';
 
-// TEMP: TS overlay for enriched leader/buddy/teamId until Supabase
-// schema adds these fields
+// TEMP: TS overlay for enriched leader/buddy/teamId/profileTasks until
+// Supabase schema adds these fields
 interface HireOverlay {
   leader: TeamMember;
   buddy: TeamMember;
   teamId: string;
+  profileTasks?: ProfileTask[];
 }
 
 const HIRE_OVERLAYS: Record<string, HireOverlay> = {
   'barbara-treslinova': {
     leader: {
-      id: 'dana-kovacik',
-      name: 'Dana Kováčik',
-      role: 'COO',
-      photo: '/team/dana-kovacik.png',
-      email: 'dana.kovacik@expan.do',
+      id: 'lukas-doskocil',
+      name: 'Lukáš Doskočil',
+      role: 'Head of Agency',
+      photo: '/team/lukas-doskocil.png',
+      email: 'lukas.doskocil@expan.do',
+      slackUserId: 'U094LQ5CMHV',
     },
     buddy: {
-      id: 'nikol-cerna',
-      name: 'Nikol Černá',
-      role: 'Operations & Project Manager',
-      photo: '/team/nikol-cerna.jpg',
-      email: 'nikol@expan.do',
+      id: 'jakub-zemlicka',
+      name: 'Jakub Žemlička',
+      role: 'Key Account Manager',
+      photo: '/team/jakub-zemlicka.png',
+      email: 'jakub.zemlicka@expan.do',
+      slackUserId: 'U01RR6QEEUW',
     },
     teamId: 'resell-team',
+    profileTasks: [
+      {
+        id: 'employee-questionnaire-osvc',
+        icon: '📋',
+        titleKey: 'profileTasks.questionnaire.title',
+        descriptionKey: 'profileTasks.questionnaire.description',
+        actionLabelKey: 'profileTasks.questionnaire.actionLabel',
+        actionUrl: 'https://docs.google.com/document/d/14N7mseqD32voYPpaRYbL14Y2aJClScvk/edit',
+      },
+    ],
   },
 };
 
@@ -91,6 +111,7 @@ function rowToConfig(row: HireRow): NewHireConfig {
     leader: overlay?.leader ?? leaderFromRow,
     buddy: overlay?.buddy ?? buddyFromRow,
     teamId: overlay?.teamId,
+    profileTasks: overlay?.profileTasks,
     resourceMapUrl: row.resource_map_url ?? undefined,
   };
 }

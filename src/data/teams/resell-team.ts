@@ -3,7 +3,8 @@ import type { Team } from '@/types';
 export const resellTeam: Team = {
   id: 'resell-team',
   name: 'Resell Team',
-  tagline: 'We buy stock, list it, and scale it across Amazon, Kaufland, Allegro and more.',
+  tagline: 'Svět, kde o prodeji rozhoduje pár centů a viditelnost na prvních pozicích.',
+  taglineEn: 'A world where sales are decided by a few cents and visibility on top positions.',
   members: [
     {
       id: 'jakub-petrek',
@@ -47,12 +48,3 @@ export const resellTeam: Team = {
     },
   ],
 };
-
-export const TEAMS_BY_ID: Record<string, Team> = {
-  'resell-team': resellTeam,
-};
-
-export function getTeamById(id: string | undefined): Team | undefined {
-  if (!id) return undefined;
-  return TEAMS_BY_ID[id];
-}

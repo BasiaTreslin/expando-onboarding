@@ -1,10 +1,11 @@
 'use client';
 
-import { MapPin, Mail } from 'lucide-react';
+import { MapPin, MessageCircle, Mail } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { teamCopy, renderTeamHeader } from '@/content/teamCopy';
-import { getTeamById } from '@/data/teams/resell-team';
+import { getTeamById, resolveSayHiHref, isSlackHref } from '@/data/teams';
+import { SayHiWidget } from '@/components/sections/SayHiWidget';
 import type { NewHireConfig, TeamMember } from '@/types';
 
 interface MeetTheTeamSectionProps {
@@ -53,6 +54,26 @@ function OptionalBlock({ label, text }: { label?: string; text?: string }) {
   );
 }
 
+function SayHiLink({ member, label, small = false }: { member: TeamMember; label: string; small?: boolean }) {
+  const href = resolveSayHiHref(member);
+  if (!href) return null;
+  const Icon = isSlackHref(href) ? MessageCircle : Mail;
+  const external = isSlackHref(href);
+  return (
+    <a
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      className={`inline-flex items-center gap-${small ? '1.5' : '2'} font-medium
+                  text-expando-orange hover:text-expando-orange-hover transition-colors
+                  ${small ? 'text-xs' : 'text-sm'}`}
+    >
+      <Icon size={small ? 12 : 14} />
+      {label}
+    </a>
+  );
+}
+
 function LeaderBuddyCard({
   member,
   label,
@@ -92,16 +113,9 @@ function LeaderBuddyCard({
         </blockquote>
       )}
 
-      {member.email && (
-        <a
-          href={`mailto:${member.email}`}
-          className="mt-5 inline-flex items-center gap-2 text-sm font-medium
-                     text-expando-orange hover:text-expando-orange-hover transition-colors"
-        >
-          <Mail size={14} />
-          {sayHiLabel}
-        </a>
-      )}
+      <div className="mt-5">
+        <SayHiLink member={member} label={sayHiLabel} />
+      </div>
     </div>
   );
 }
@@ -134,16 +148,9 @@ function PeerCard({ member, sayHiLabel }: { member: TeamMember; sayHiLabel: stri
         </blockquote>
       )}
 
-      {member.email && (
-        <a
-          href={`mailto:${member.email}`}
-          className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium
-                     text-expando-orange hover:text-expando-orange-hover transition-colors self-start"
-        >
-          <Mail size={12} />
-          {sayHiLabel}
-        </a>
-      )}
+      <div className="mt-4 self-start">
+        <SayHiLink member={member} label={sayHiLabel} small />
+      </div>
     </div>
   );
 }
@@ -152,6 +159,12 @@ export function MeetTheTeamSection({ config }: MeetTheTeamSectionProps) {
   const { language } = useLanguage();
   const copy = teamCopy[language];
   const team = getTeamById(config.teamId);
+
+  const peerMembers = team
+    ? team.members.filter((m) => m.id !== config.leader.id && m.id !== config.buddy.id)
+    : [];
+
+  const teamTagline = team ? (language === 'en' ? team.taglineEn ?? team.tagline : team.tagline) : undefined;
 
   return (
     <SectionWrapper id="team" className="py-20 sm:py-28 bg-white">
@@ -175,23 +188,28 @@ export function MeetTheTeamSection({ config }: MeetTheTeamSectionProps) {
               sayHiLabel={copy.sayHi}
             />
           </div>
+
+          {/* Say-hi message drafter */}
+          <div className="mt-12">
+            <SayHiWidget config={config} />
+          </div>
         </div>
 
-        {/* Peer team — only if teamId resolves */}
-        {team && (
+        {/* Peer team — only if teamId resolves and peer grid has members */}
+        {team && peerMembers.length > 0 && (
           <div className="max-w-5xl mx-auto mt-20 sm:mt-24">
             <div className="mb-10">
               <div className="orange-line mb-4" />
               <h2 className="section-heading">
                 {renderTeamHeader(copy.teamHeader, team.name)}
               </h2>
-              {team.tagline && (
-                <p className="section-subheading max-w-2xl">{team.tagline}</p>
+              {teamTagline && (
+                <p className="section-subheading max-w-2xl">{teamTagline}</p>
               )}
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {team.members.map((member) => (
+              {peerMembers.map((member) => (
                 <PeerCard key={member.id} member={member} sayHiLabel={copy.sayHi} />
               ))}
             </div>
