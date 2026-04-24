@@ -1,0 +1,92 @@
+import type { Team } from '@/types';
+
+export const customerSuccessTeam: Team = {
+  id: 'customer-success-team',
+  name: 'Customer Success',
+  tagline:
+    'Svět, kde Happy Client First znamená držet Account Health v zelené — dřív, než klient zjistí, že něco haraší.',
+  taglineEn:
+    'A world where Happy Client First means keeping Account Health green — before the client ever notices something slipped.',
+  members: [
+    {
+      id: 'klaudie-prochazkova',
+      name: 'Klaudie Procházková',
+      role: 'CS Specialist',
+      photo: '/team/klaudie-prochazkova.png',
+      location: 'Praha',
+      email: 'klaudie.prochazkova@expan.do',
+    },
+    {
+      id: 'lucie-liskova',
+      name: 'Lucie Lišková',
+      role: 'CS Specialist',
+      photo: '/team/lucie-liskova.jpg',
+      location: 'Praha',
+      email: 'lucie.liskova@expan.do',
+    },
+    {
+      id: 'lucie-vaclavkova',
+      name: 'Lucie Václavková',
+      role: 'CS Specialist',
+      photo: '/team/lucie-vaclavkova.jpg',
+      location: 'Praha',
+      email: 'lucie.vaclavkova@expan.do',
+    },
+    {
+      id: 'tereza-rzehaczkova',
+      name: 'Tereza Rzehaczková',
+      role: 'CS Specialist',
+      photo: '/team/tereza-rzehaczkova.jpg',
+      location: 'Praha',
+      email: 'tereza.rzehaczkova@expan.do',
+    },
+    {
+      id: 'dita-ptackova',
+      name: 'Dita Ptáčková',
+      role: 'CS Specialist',
+      photo: '/team/dita-ptackova.jpg',
+      location: 'Praha',
+      email: 'dita.ptackova@expan.do',
+    },
+    {
+      id: 'karolina-prochazkova',
+      name: 'Karolína Procházková',
+      role: 'CS Specialist',
+      photo: '/team/karolina-prochazkova.jpg',
+      location: 'Praha',
+      email: 'karolina.prochazkova@expan.do',
+    },
+    {
+      id: 'tereza-grossova',
+      name: 'Tereza Grossová',
+      role: 'CS Specialist',
+      photo: '/team/tereza-grossova.jpg',
+      location: 'Praha',
+      email: 'tereza.grossova@expan.do',
+    },
+    {
+      id: 'eliska-misankova',
+      name: 'Eliška Mišanková',
+      role: 'CS Specialist',
+      photo: '/team/eliska-misankova.png',
+      location: 'Praha',
+      email: 'eliska.misankova@expan.do',
+    },
+    {
+      id: 'lenka-zborovska',
+      name: 'Lenka Zborovská',
+      role: 'CS Specialist',
+      photo: '/team/lenka-zborovska.jpg',
+      location: 'Praha',
+      email: 'lenka.zborovska@expan.do',
+    },
+    {
+      id: 'lucie-koskova',
+      name: 'Lucie Kosková',
+      role: 'CS Specialist',
+      photo: '/team/lucie-koskova.jpg',
+      location: 'Praha',
+      email: 'lucie.koskova@expan.do',
+    },
+  ],
+};

@@ -4,6 +4,7 @@ import { LanguageProvider } from '@/i18n/LanguageContext';
 import { Navigation } from '@/components/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProfileSection } from '@/components/sections/ProfileSection';
+import { MeetTheTeamSection } from '@/components/sections/MeetTheTeamSection';
 import { StorySection } from '@/components/sections/StorySection';
 import { ValuesSection } from '@/components/sections/ValuesSection';
 import { WhatWeDoSection } from '@/components/sections/WhatWeDoSection';
@@ -28,6 +29,7 @@ export function OnboardingPage({ config }: OnboardingPageProps) {
       <main>
         <HeroSection config={config} />
         <ProfileSection config={config} />
+        <MeetTheTeamSection config={config} />
         <StorySection />
         <ValuesSection />
         <WhatWeDoSection />
