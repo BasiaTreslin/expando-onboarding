@@ -5,7 +5,7 @@ import { Navigation } from '@/components/Navigation';
 import { TasksIntroBanner } from '@/components/TasksIntroBanner';
 import { CelebrationPreview } from '@/components/CelebrationPreview';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { ProfileSection } from '@/components/sections/ProfileSection';
+import { AboutYouSection } from '@/components/sections/about-you/AboutYouSection';
 import { MeetTheTeamSection } from '@/components/sections/MeetTheTeamSection';
 import { StorySection } from '@/components/sections/StorySection';
 import { ValuesSection } from '@/components/sections/ValuesSection';
@@ -33,7 +33,7 @@ export function OnboardingPage({ config }: OnboardingPageProps) {
       <main>
         <TasksIntroBanner slug={config.slug} hasTasks={hasTasks} />
         <HeroSection config={config} />
-        <ProfileSection config={config} />
+        <AboutYouSection config={config} />
         <MeetTheTeamSection config={config} />
         <StorySection />
         <ValuesSection />
