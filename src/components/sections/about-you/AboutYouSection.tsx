@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { ProfileCard } from './ProfileCard';
 import { StatusPill } from './StatusPill';
+import { PracticalInfoModal } from './PracticalInfoModal';
 import { useAboutYouTasks } from './hooks/useAboutYouTasks';
 import type { NewHireConfig } from '@/types';
 
@@ -26,7 +27,8 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
     });
   }, [config.startDate, language]);
 
-  // Step 3: stub handlers. Real modals wire in steps 4–6.
+  const [practicalInfoOpen, setPracticalInfoOpen] = useState(false);
+  // Step 4: contract / questionnaire still stubbed — wire in steps 5–6.
   const noop = () => {};
 
   return (
@@ -58,12 +60,18 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
             formattedStartDate={formattedStartDate}
             contractDone={tasks.contractDone}
             questionnaireDone={tasks.questionnaireDone}
-            onPracticalInfoClick={noop}
+            onPracticalInfoClick={() => setPracticalInfoOpen(true)}
             onContractClick={noop}
             onQuestionnaireClick={noop}
           />
         </div>
       </div>
+
+      <PracticalInfoModal
+        open={practicalInfoOpen}
+        onClose={() => setPracticalInfoOpen(false)}
+        contractType={config.contractType}
+      />
     </SectionWrapper>
   );
 }

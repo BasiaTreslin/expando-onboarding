@@ -342,6 +342,51 @@
       "title": "Skvělá práce, {{firstName}}!"
     }
   },
+  "practicalInfo": {
+    "title": "Praktické info",
+    "subtitle": "Benefity, dovolená a perks v EXPANDO",
+    "workingHours": {
+      "label": "PRACOVNÍ DOBA",
+      "body": "Pracovní doba je tak flexibilní jako ty. Žádné fixní 9–5. Státní svátky podle tvé domovské země (české v ČR, slovenské v SR)."
+    },
+    "vacation": {
+      "label": "DOVOLENÁ A SICK DAYS",
+      "items": [
+        "25 dní dovolené ročně",
+        "3 sick days ročně",
+        "Při nástupu v polovině roku se počítá poměrně (např. nástup v červenci = 12,5 dní)",
+        "Až 5 dní lze převést do dalšího roku (max 30 celkem)",
+        "Schvaluje se přes Vacation Tracker (login přes Slack), pak přidat do Google kalendáře"
+      ]
+    },
+    "sickLeave": {
+      "label": "SICK LEAVE — JAK NA TO",
+      "hppIntro": "(Pro HPP)",
+      "hppSteps": [
+        "Zajdi k doktorovi",
+        "Doktor vystaví eNeschopenku → ČSSZ",
+        "Dostaneš identifikátor (SMS / e-mail)",
+        "Pošli identifikátor Emě Novákové",
+        "Prvních 14 dní platí EXPANDO (60 % průměrné mzdy)",
+        "Od 15. dne přebírá ČSSZ"
+      ],
+      "zl": "Jako OSVČ je sick leave na tobě — kryje tě tvoje soukromé/dobrovolné pojištění. ČSSZ se zapojí jen pokud si platíš dobrovolné nemocenské. Stačí dát vědět svému leaderovi, když potřebuješ volno."
+    },
+    "perks": {
+      "label": "EXTRA PERKS",
+      "homeOffice": "🏡 Home office — flexibilně po domluvě s leaderem",
+      "multisport": "🏋️ MultiSport karta — 50 % hradí EXPANDO (517 Kč místo 1 034 Kč). Domluv si s Emou od prvního dne.",
+      "payrollHpp": "💸 Mzda do 10. každého měsíce na účet z dotazníku",
+      "payrollZl": "💸 Faktury splatné do 7 dní (viz čl. 3.6 smlouvy). Posílej je na fakturace@expan.do v měsíčním cyklu.",
+      "offices": "🌍 Kanceláře v Praze (Karlín) a Havířově"
+    },
+    "onboardingTask": {
+      "label": "ONBOARDING TASK (uděláme společně Den 1)",
+      "body": "Přihlas se do Vacation Tracker přes Slack a napiš Emě, ať tě přiřadí do správného oddělení."
+    },
+    "footer": "Potřebuješ víc detailů? Plný HR handbook najdeš v Notion → ",
+    "footerLinkLabel": "GI11 Employees"
+  },
   "aboutYou": {
     "title": "O tobě",
     "subtitle": "Vše, co potřebuješ vědět — a udělat — než přijdeš.",

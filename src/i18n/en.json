@@ -342,6 +342,51 @@
       "title": "Great job, {{firstName}}!"
     }
   },
+  "practicalInfo": {
+    "title": "Practical information",
+    "subtitle": "Benefits, time off, and perks at EXPANDO",
+    "workingHours": {
+      "label": "WORKING HOURS",
+      "body": "Work is as flexible as you are. No fixed 9–5. Public holidays follow your home country (Czech in CZ, Slovak in SK)."
+    },
+    "vacation": {
+      "label": "VACATION & SICK DAYS",
+      "items": [
+        "25 vacation days per year",
+        "3 sick days per year",
+        "Mid-year start = pro-rated (e.g. starting in July = 12.5 days)",
+        "Roll over up to 5 days into the next year (max 30 total)",
+        "Approval via Vacation Tracker (login via Slack), then add to Google Calendar"
+      ]
+    },
+    "sickLeave": {
+      "label": "SICK LEAVE — HOW IT WORKS",
+      "hppIntro": "(For HPP)",
+      "hppSteps": [
+        "Visit your doctor",
+        "Doctor issues eNeschopenka → ČSSZ",
+        "You get an identifier (SMS / email)",
+        "Send identifier to Ema Nováková",
+        "First 14 days paid by EXPANDO (60% of avg)",
+        "From day 15, ČSSZ takes over"
+      ],
+      "zl": "As an OSVČ, sick leave is your own — covered by your private/voluntary insurance. ČSSZ kicks in only if you pay voluntary sickness insurance. Just let your leader know if you need to take time off."
+    },
+    "perks": {
+      "label": "EXTRA PERKS",
+      "homeOffice": "🏡 Home office — flexibly with your leader",
+      "multisport": "🏋️ MultiSport card — 50% covered by EXPANDO (517 Kč instead of 1,034 Kč). Apply with Ema from day 1.",
+      "payrollHpp": "💸 Payroll by the 10th of each month to the bank account from your questionnaire",
+      "payrollZl": "💸 Invoices due within 7 days (see contract §3.6). Send them to fakturace@expan.do monthly.",
+      "offices": "🌍 Office in Praha (Karlín) and Havířov"
+    },
+    "onboardingTask": {
+      "label": "ONBOARDING TASK (we'll do this on Day 1)",
+      "body": "Log into Vacation Tracker via Slack and ping Ema to assign you to the right department."
+    },
+    "footer": "Need more details? Full HR handbook in Notion → ",
+    "footerLinkLabel": "GI11 Employees"
+  },
   "aboutYou": {
     "title": "About You",
     "subtitle": "Everything you need to know — and do — before you walk in the door.",
