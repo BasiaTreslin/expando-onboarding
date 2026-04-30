@@ -342,6 +342,29 @@
       "title": "Great job, {{firstName}}!"
     }
   },
+  "contractModal": {
+    "title": "Your contract",
+    "subtitle": "Framework agreement (OSVČ)",
+    "reviewedBadge": "Reviewed",
+    "keyTerms": {
+      "label": "KEY TERMS AT A GLANCE",
+      "items": [
+        "Min 35 hours/week",
+        "Invoice payment within 7 days",
+        "1-month notice period",
+        "12-month non-compete clause"
+      ]
+    },
+    "status": {
+      "label": "STATUS",
+      "body": "Contract will be sent via PandaDoc once your questionnaire is complete. For now, you can preview the template:",
+      "viewTemplate": "View template PDF →"
+    },
+    "review": {
+      "cta": "I've reviewed the contract",
+      "success": "Marked as reviewed."
+    }
+  },
   "questionnaire": {
     "title": "Personal questionnaire",
     "subtitle": "Basic details for HR + payroll. Takes about 5 minutes.",
@@ -357,7 +380,7 @@
       "shirtSize": { "label": "Shirt size", "placeholder": "Pick…" },
       "dietary": { "label": "Dietary preferences", "placeholder": "Vegetarian / vegan / none…" },
       "allergies": { "label": "Allergies", "placeholder": "None, or list them" },
-      "birthDate": { "label": "Birth date (optional)" },
+      "birthDate": { "label": "Birth date" },
       "ico": { "label": "IČO", "placeholder": "12345678" },
       "bankAccount": { "label": "Bank account", "placeholder": "123-456789012/0100" }
     },
@@ -368,10 +391,11 @@
       "shirtSizeRequired": "Pick a size.",
       "dietaryRequired": "Tell us your dietary preferences (can be \"none\").",
       "allergiesRequired": "List your allergies (can be \"none\").",
+      "birthDateRequired": "Please enter your birth date.",
       "icoFormat": "IČO must be 8 digits.",
       "bankAccountFormat": "Use Czech format, e.g. 123-456789012/0100."
     },
-    "privacy": "Your data stays with Nikol and HR. We use it to prepare your contract and your first day.",
+    "privacy": "Your data stays with HR. We use it to prepare your contract and your first day.",
     "cancel": "Cancel",
     "submit": "Save",
     "success": "Done! We've got your answers.",

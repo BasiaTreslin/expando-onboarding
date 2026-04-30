@@ -342,6 +342,29 @@
       "title": "Skvělá práce, {{firstName}}!"
     }
   },
+  "contractModal": {
+    "title": "Tvoje smlouva",
+    "subtitle": "Rámcová smlouva pro OSVČ",
+    "reviewedBadge": "Přečteno",
+    "keyTerms": {
+      "label": "KLÍČOVÉ PODMÍNKY",
+      "items": [
+        "Min. 35 hodin týdně",
+        "Splatnost faktur 7 dní",
+        "Výpovědní lhůta 1 měsíc",
+        "Konkurenční doložka 12 měsíců"
+      ]
+    },
+    "status": {
+      "label": "STAV",
+      "body": "Smlouva ti přijde přes PandaDoc, jakmile vyplníš dotazník. Zatím si můžeš prohlédnout šablonu:",
+      "viewTemplate": "Zobrazit šablonu PDF →"
+    },
+    "review": {
+      "cta": "Smlouvu jsem si prohlédl/a",
+      "success": "Označeno jako přečteno."
+    }
+  },
   "questionnaire": {
     "title": "Osobní dotazník",
     "subtitle": "Základní údaje pro HR a mzdu. Zabere zhruba 5 minut.",
@@ -357,7 +380,7 @@
       "shirtSize": { "label": "Velikost trička", "placeholder": "Vyber…" },
       "dietary": { "label": "Stravovací preference", "placeholder": "Vegetarián / vegan / žádné…" },
       "allergies": { "label": "Alergie", "placeholder": "Žádné, nebo vypsat" },
-      "birthDate": { "label": "Datum narození (volitelné)" },
+      "birthDate": { "label": "Datum narození" },
       "ico": { "label": "IČO", "placeholder": "12345678" },
       "bankAccount": { "label": "Bankovní účet", "placeholder": "123-456789012/0100" }
     },
@@ -368,10 +391,11 @@
       "shirtSizeRequired": "Vyber velikost.",
       "dietaryRequired": "Vyplň stravovací preference (může být „žádné“).",
       "allergiesRequired": "Vyplň alergie (může být „žádné“).",
+      "birthDateRequired": "Zadej prosím datum narození.",
       "icoFormat": "IČO má 8 číslic.",
       "bankAccountFormat": "Použij český formát, např. 123-456789012/0100."
     },
-    "privacy": "Tvoje data zůstanou jen u Nikol a HR. Slouží pro přípravu smlouvy a tvůj první den.",
+    "privacy": "Tvoje údaje zůstávají u HR. Používáme je k přípravě smlouvy a prvního dne.",
     "cancel": "Zrušit",
     "submit": "Uložit",
     "success": "Hotovo! Tvoje odpovědi máme.",

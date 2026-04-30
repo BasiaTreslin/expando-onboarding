@@ -95,6 +95,9 @@ function validate(
   if (!data.allergies.trim()) {
     e.allergies = t('questionnaire.validation.allergiesRequired');
   }
+  if (!data.birthDate) {
+    e.birthDate = t('questionnaire.validation.birthDateRequired');
+  }
   if (isZL) {
     if (!ICO_REGEX.test(data.ico.trim())) {
       e.ico = t('questionnaire.validation.icoFormat');
@@ -332,6 +335,8 @@ export function QuestionnaireModal({
               <Field
                 id="birthDate"
                 label={t('questionnaire.fields.birthDate.label')}
+                required
+                error={errors.birthDate}
               >
                 <input
                   id="birthDate"
@@ -339,7 +344,8 @@ export function QuestionnaireModal({
                   max={today}
                   value={data.birthDate}
                   onChange={update('birthDate')}
-                  className={inputClass(false)}
+                  aria-invalid={!!errors.birthDate}
+                  className={inputClass(!!errors.birthDate)}
                 />
               </Field>
             </div>

@@ -7,6 +7,7 @@ import { ProfileCard } from './ProfileCard';
 import { StatusPill } from './StatusPill';
 import { PracticalInfoModal } from './PracticalInfoModal';
 import { QuestionnaireModal } from './QuestionnaireModal';
+import { ContractModal } from './ContractModal';
 import { useAboutYouTasks } from './hooks/useAboutYouTasks';
 import type { NewHireConfig } from '@/types';
 
@@ -30,8 +31,7 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
 
   const [practicalInfoOpen, setPracticalInfoOpen] = useState(false);
   const [questionnaireOpen, setQuestionnaireOpen] = useState(false);
-  // Step 5: contract still stubbed — wires in step 6.
-  const noop = () => {};
+  const [contractOpen, setContractOpen] = useState(false);
 
   return (
     <SectionWrapper
@@ -63,7 +63,7 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
             contractDone={tasks.contractDone}
             questionnaireDone={tasks.questionnaireDone}
             onPracticalInfoClick={() => setPracticalInfoOpen(true)}
-            onContractClick={noop}
+            onContractClick={() => setContractOpen(true)}
             onQuestionnaireClick={() => setQuestionnaireOpen(true)}
           />
         </div>
@@ -82,6 +82,14 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
         slug={config.slug}
         firstName={config.name}
         onSubmitted={tasks.markQuestionnaireSubmitted}
+      />
+
+      <ContractModal
+        open={contractOpen}
+        onClose={() => setContractOpen(false)}
+        reviewed={tasks.contractDone}
+        firstName={config.name}
+        onReview={tasks.markContractReviewed}
       />
     </SectionWrapper>
   );
