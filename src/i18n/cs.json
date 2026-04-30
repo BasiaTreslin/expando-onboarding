@@ -480,37 +480,39 @@
     }
   },
   "performance": {
-    "title": "Jak u nás rosteš",
-    "body": "V EXPANDO máme strukturovaný přístup k růstu — ne jen plat do tabulky, ale skutečnou cestu.",
-    "cadence": [
-      "Měsíčně 1:1 se svým leaderem",
-      "Kvartálně check-in nad OKRs",
-      "90-day review po nástupu",
-      "Roční performance review"
-    ],
-    "axes": "Zaměřujeme se na 3 osy: dovednosti, ownership, přínos týmu.",
-    "ctaNotion": "Více v Notion →"
+    "title": "Hodnocení výkonu",
+    "subtitle": "Jak spolu rosteme v EXPANDO",
+    "items": [
+      "Hodnocení výkonu probíhá dvakrát ročně (leden a červenec)",
+      "Čtvrtletní check-iny s leaderem — sledujeme cíle i wellbeing",
+      "Prvních 90 dní: týdenní 1:1 s leaderem, jednou za 14 dní s buddym"
+    ]
   },
   "referral": {
-    "title": "Referral program",
-    "body": "Až se rozkoukáš a najdeš někoho, kdo by k nám pasoval, dej nám vědět! Hledáme A+ lidi, kteří zvednou laťku.",
-    "bonusTitle": "Bonus za referral:",
-    "bonus3m": "10 000 Kč po 3 měsících jeho práce",
-    "bonus6m": "+ 20 000 Kč po 6 měsících (= celkem 30 000 Kč za úspěšný hire)",
-    "fteNote": "Bonus je proporcionální FTE — 0,5 FTE = 50 % částky.",
-    "ctaNotion": "Více v Notion →",
-    "ctaForm": "Vyplnit referral →"
+    "title": "Program odměn za doporučení",
+    "subtitle": "Pomoz nám rozšířit tým",
+    "items": [
+      "Doporuč nám někoho skvělého",
+      "10 000 Kč při podpisu smlouvy",
+      "20 000 Kč po probační době (6 měsíců)",
+      "Otevřené pozice najdeš v Notion nebo se zeptej Emy"
+    ],
+    "cta": "Otevřené pozice →"
   },
   "contacts": {
-    "title": "Kontakty pro praktické věci",
-    "hr": "HR a HR otázky",
-    "multisport": "MultiSport karta",
-    "it": "IT / přístupy",
-    "anything": "Cokoli dalšího",
-    "hrPerson": "Ema Nováková",
-    "multisportPerson": "Ema Nováková",
-    "itChannel": "IT team (#it-help v Slacku)",
-    "anythingPerson": "Tvůj buddy nebo leader"
+    "title": "Praktické kontakty",
+    "rows": {
+      "hr": "HR otázky",
+      "multisport": "MultiSport",
+      "it": "IT",
+      "anything": "Cokoli jiného"
+    },
+    "values": {
+      "hrPerson": "Ema Nováková",
+      "multisportPerson": "Ema Nováková",
+      "itChannel": "#it-help v Slacku",
+      "anythingPerson": "Tvůj buddy nebo leader"
+    }
   },
   "aboutYourTeam": {
     "title": "O tvém týmu",
