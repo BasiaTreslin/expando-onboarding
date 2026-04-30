@@ -339,9 +339,105 @@
       "allDone": "Všechny úkoly hotové!"
     },
     "modal": {
-      "title": "Skvělá práce, {{firstName}}!",
-      "defaultMessage": "Úkol splněn.",
-      "close": "Super, jdu dál"
+      "title": "Skvělá práce, {{firstName}}!"
+    }
+  },
+  "aboutYou": {
+    "title": "O tobě",
+    "subtitle": "Vše, co potřebuješ vědět — a udělat — než přijdeš.",
+    "pillInProgress": "Úkoly: {{done}} ze {{total}} hotovo",
+    "pillAllDone": "✓ Všechny úkoly hotové!",
+    "info": {
+      "role": "Pozice",
+      "team": "Tým",
+      "startDate": "Datum nástupu",
+      "startTime": "9:00"
+    },
+    "tiles": {
+      "practicalInfo": {
+        "label": "Praktické info",
+        "description": "Benefity, dovolená, perks",
+        "cta": "Otevřít kartu →"
+      },
+      "contract": {
+        "label": "Tvoje smlouva",
+        "description": "Rámcová smlouva pro OSVČ",
+        "cta": "Přečíst a podepsat →",
+        "ctaReviewed": "Zobrazit smlouvu →",
+        "completedBadge": "Přečteno"
+      },
+      "questionnaire": {
+        "label": "Osobní dotazník",
+        "description": "Základní údaje pro HR a mzdy",
+        "cta": "Otevřít dotazník →",
+        "ctaCompleted": "Upravit odpovědi →",
+        "completedBadge": "Hotovo"
+      }
+    }
+  },
+  "performance": {
+    "title": "Jak u nás rosteš",
+    "body": "V EXPANDO máme strukturovaný přístup k růstu — ne jen plat do tabulky, ale skutečnou cestu.",
+    "cadence": [
+      "Měsíčně 1:1 se svým leaderem",
+      "Kvartálně check-in nad OKRs",
+      "90-day review po nástupu",
+      "Roční performance review"
+    ],
+    "axes": "Zaměřujeme se na 3 osy: dovednosti, ownership, přínos týmu.",
+    "ctaNotion": "Více v Notion →"
+  },
+  "referral": {
+    "title": "Referral program",
+    "body": "Až se rozkoukáš a najdeš někoho, kdo by k nám pasoval, dej nám vědět! Hledáme A+ lidi, kteří zvednou laťku.",
+    "bonusTitle": "Bonus za referral:",
+    "bonus3m": "10 000 Kč po 3 měsících jeho práce",
+    "bonus6m": "+ 20 000 Kč po 6 měsících (= celkem 30 000 Kč za úspěšný hire)",
+    "fteNote": "Bonus je proporcionální FTE — 0,5 FTE = 50 % částky.",
+    "ctaNotion": "Více v Notion →",
+    "ctaForm": "Vyplnit referral →"
+  },
+  "contacts": {
+    "title": "Kontakty pro praktické věci",
+    "hr": "HR a HR otázky",
+    "multisport": "MultiSport karta",
+    "it": "IT / přístupy",
+    "anything": "Cokoli dalšího",
+    "hrPerson": "Ema Nováková",
+    "multisportPerson": "Ema Nováková",
+    "itChannel": "IT team (#it-help v Slacku)",
+    "anythingPerson": "Tvůj buddy nebo leader"
+  },
+  "aboutYourTeam": {
+    "title": "O tvém týmu",
+    "subtitle": "Tady jsou lidi, se kterými budeš pracovat. Jsou na tebe nachystaní.",
+    "leaderLabel": "TVŮJ LEADER",
+    "buddyLabel": "TVŮJ BUDDY",
+    "slackCta": "Napiš si na Slacku →"
+  },
+  "introduceYourself": {
+    "title": "Představ se",
+    "body": "Než přijdeš, řekni nám pár vět o sobě. Tým si tě tak může poznat dřív, než tě potká naživo.",
+    "fields": {
+      "fullName": "Tvoje jméno",
+      "whyExpando": "Proč ses rozhodl/a pro EXPANDO?",
+      "funFact": "Řekni nám o sobě nějaký fun fact 🎉"
+    },
+    "placeholders": {
+      "whyExpando": "Co tě na nás zaujalo, co tě sem přivádí…",
+      "funFact": "Něco neobvyklého — koníček, dovednost, příhoda, na kterou jsi pyšný/á…"
+    },
+    "validation": {
+      "whyExpandoMin": "Napiš alespoň 20 znaků.",
+      "whyExpandoMax": "Maximálně 500 znaků.",
+      "funFactMin": "Napiš alespoň 10 znaků.",
+      "funFactMax": "Maximálně 300 znaků."
+    },
+    "submitCta": "Uložit a sdílet s týmem",
+    "success": {
+      "title": "Skvělé! Tým se těší tě poznat.",
+      "body": "Tvoje odpovědi máme. Nikol je dostala — první den vás dáme dohromady.",
+      "editAnswers": "Upravit odpovědi →"
     }
   }
 }

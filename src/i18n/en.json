@@ -339,9 +339,105 @@
       "allDone": "All tasks done!"
     },
     "modal": {
-      "title": "Great job, {{firstName}}!",
-      "defaultMessage": "Task completed.",
-      "close": "Thanks, continuing"
+      "title": "Great job, {{firstName}}!"
+    }
+  },
+  "aboutYou": {
+    "title": "About You",
+    "subtitle": "Everything you need to know — and do — before you walk in the door.",
+    "pillInProgress": "Tasks: {{done}} of {{total}} done",
+    "pillAllDone": "✓ All tasks done!",
+    "info": {
+      "role": "Role",
+      "team": "Team",
+      "startDate": "Start date",
+      "startTime": "9:00"
+    },
+    "tiles": {
+      "practicalInfo": {
+        "label": "Practical information",
+        "description": "Benefits, time off, perks",
+        "cta": "Open card →"
+      },
+      "contract": {
+        "label": "Your contract",
+        "description": "Framework agreement (OSVČ)",
+        "cta": "Read & sign →",
+        "ctaReviewed": "View contract →",
+        "completedBadge": "Reviewed"
+      },
+      "questionnaire": {
+        "label": "Personal questionnaire",
+        "description": "Basic details for HR + payroll",
+        "cta": "Open questionnaire →",
+        "ctaCompleted": "Edit answers →",
+        "completedBadge": "Completed"
+      }
+    }
+  },
+  "performance": {
+    "title": "How you grow with us",
+    "body": "At EXPANDO we take a structured approach to growth — not just a number in a spreadsheet, but a real path.",
+    "cadence": [
+      "Monthly 1:1 with your leader",
+      "Quarterly OKR check-in",
+      "90-day review after start",
+      "Annual performance review"
+    ],
+    "axes": "We focus on 3 axes: skills, ownership, team contribution.",
+    "ctaNotion": "Read more in Notion →"
+  },
+  "referral": {
+    "title": "Referral program",
+    "body": "Once you settle in and find someone who'd fit, let us know! We're looking for A+ people who raise the bar.",
+    "bonusTitle": "Referral bonus:",
+    "bonus3m": "10,000 Kč after 3 months of their work",
+    "bonus6m": "+ 20,000 Kč after 6 months (= 30,000 Kč total per successful hire)",
+    "fteNote": "Bonus scales with FTE — 0.5 FTE = 50% of amount.",
+    "ctaNotion": "More in Notion →",
+    "ctaForm": "Submit a referral →"
+  },
+  "contacts": {
+    "title": "Practical contacts",
+    "hr": "HR questions",
+    "multisport": "MultiSport card",
+    "it": "IT / access",
+    "anything": "Anything else",
+    "hrPerson": "Ema Nováková",
+    "multisportPerson": "Ema Nováková",
+    "itChannel": "IT team (#it-help on Slack)",
+    "anythingPerson": "Your buddy or leader"
+  },
+  "aboutYourTeam": {
+    "title": "About Your Team",
+    "subtitle": "Here are the people you'll work with. They're ready for you.",
+    "leaderLabel": "YOUR LEADER",
+    "buddyLabel": "YOUR BUDDY",
+    "slackCta": "Say hi on Slack →"
+  },
+  "introduceYourself": {
+    "title": "Introduce yourself",
+    "body": "Before you walk in, tell us a few things about yourself. The team can get to know you a bit before meeting you.",
+    "fields": {
+      "fullName": "Your name",
+      "whyExpando": "Why did you choose EXPANDO?",
+      "funFact": "Share a fun fact about yourself 🎉"
+    },
+    "placeholders": {
+      "whyExpando": "What caught your eye, what's bringing you here…",
+      "funFact": "Something unusual — a hobby, a skill, a story you're proud of…"
+    },
+    "validation": {
+      "whyExpandoMin": "Please write at least 20 characters.",
+      "whyExpandoMax": "Max 500 characters.",
+      "funFactMin": "Please write at least 10 characters.",
+      "funFactMax": "Max 300 characters."
+    },
+    "submitCta": "Save & share with the team",
+    "success": {
+      "title": "Awesome! The team is excited to meet you.",
+      "body": "We've got your answers. Nikol has them — we'll introduce you on day 1.",
+      "editAnswers": "Edit answers →"
     }
   }
 }
