@@ -521,5 +521,10 @@
       "title": "Skvělé! Tým se těší tě poznat.",
       "editAnswers": "Upravit odpovědi →"
     }
+  },
+  "gamification": {
+    "modal": {
+      "title": "Skvělá práce, {firstName}!"
+    }
   }
 }

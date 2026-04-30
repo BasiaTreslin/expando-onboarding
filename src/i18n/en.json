@@ -521,5 +521,10 @@
       "title": "Awesome! The team can't wait to meet you.",
       "editAnswers": "Edit answers →"
     }
+  },
+  "gamification": {
+    "modal": {
+      "title": "Great job, {firstName}!"
+    }
   }
 }

@@ -118,3 +118,52 @@ html {
 ::-webkit-scrollbar-track { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb { background: #E5E5E5; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #FF4D00; }
+
+/* Celebration pop animation */
+@keyframes celebration-pop {
+  0%   { transform: scale(0) translateY(20px); opacity: 0; }
+  15%  { transform: scale(1.15) translateY(0); opacity: 1; }
+  25%  { transform: scale(1) rotate(-2deg); opacity: 1; }
+  30%  { transform: scale(1.02) rotate(2deg); opacity: 1; }
+  35%  { transform: scale(1) rotate(0deg); opacity: 1; }
+  75%  { transform: scale(1) translateY(0); opacity: 1; }
+  100% { transform: scale(1.2) translateY(-60px); opacity: 0; }
+}
+
+@keyframes celebration-text-fade {
+  0%, 30% { opacity: 0; transform: translateY(10px); }
+  40%     { opacity: 1; transform: translateY(0); }
+  80%     { opacity: 1; transform: translateY(0); }
+  100%    { opacity: 0; transform: translateY(0); }
+}
+
+.celebration-pop-card {
+  animation: celebration-pop 2500ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.celebration-pop-text {
+  animation: celebration-text-fade 2500ms ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes celebration-pop-reduced {
+  0%, 80% { opacity: 1; }
+  100%    { opacity: 0; }
+}
+
+@keyframes celebration-text-reduced {
+  0%, 80% { opacity: 1; }
+  100%    { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .celebration-pop-card {
+    animation: celebration-pop-reduced 2000ms ease-out forwards;
+    transform: none;
+  }
+  .celebration-pop-text {
+    animation: celebration-text-reduced 2000ms ease-out forwards;
+    transform: none;
+  }
+}
