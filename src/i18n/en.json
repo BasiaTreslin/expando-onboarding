@@ -342,6 +342,41 @@
       "title": "Great job, {{firstName}}!"
     }
   },
+  "questionnaire": {
+    "title": "Personal questionnaire",
+    "subtitle": "Basic details for HR + payroll. Takes about 5 minutes.",
+    "groups": {
+      "contact": "CONTACT DETAILS",
+      "teamLunch": "FOR TEAM LUNCH & MERCH",
+      "zl": "ŽL — FOR CONTRACT PRE-FILL"
+    },
+    "fields": {
+      "phone": { "label": "Phone number", "placeholder": "+420 123 456 789" },
+      "address": { "label": "Address", "placeholder": "Street, city, postcode" },
+      "linkedin": { "label": "LinkedIn (optional)", "placeholder": "https://linkedin.com/in/…" },
+      "shirtSize": { "label": "Shirt size", "placeholder": "Pick…" },
+      "dietary": { "label": "Dietary preferences", "placeholder": "Vegetarian / vegan / none…" },
+      "allergies": { "label": "Allergies", "placeholder": "None, or list them" },
+      "birthDate": { "label": "Birth date (optional)" },
+      "ico": { "label": "IČO", "placeholder": "12345678" },
+      "bankAccount": { "label": "Bank account", "placeholder": "123-456789012/0100" }
+    },
+    "validation": {
+      "phoneFormat": "Use format +420 123 456 789 (9–15 digits).",
+      "addressMin": "Address must be at least 10 characters.",
+      "linkedinFormat": "Use a full URL starting with http(s)://.",
+      "shirtSizeRequired": "Pick a size.",
+      "dietaryRequired": "Tell us your dietary preferences (can be \"none\").",
+      "allergiesRequired": "List your allergies (can be \"none\").",
+      "icoFormat": "IČO must be 8 digits.",
+      "bankAccountFormat": "Use Czech format, e.g. 123-456789012/0100."
+    },
+    "privacy": "Your data stays with Nikol and HR. We use it to prepare your contract and your first day.",
+    "cancel": "Cancel",
+    "submit": "Save",
+    "success": "Done! We've got your answers.",
+    "shirtSizes": ["S", "M", "L", "XL", "XXL"]
+  },
   "practicalInfo": {
     "title": "Practical information",
     "subtitle": "Benefits, time off, and perks at EXPANDO",
@@ -378,7 +413,7 @@
       "multisport": "🏋️ MultiSport card — 50% covered by EXPANDO (517 Kč instead of 1,034 Kč). Apply with Ema from day 1.",
       "payrollHpp": "💸 Payroll by the 10th of each month to the bank account from your questionnaire",
       "payrollZl": "💸 Invoices due within 7 days (see contract §3.6). Send them to fakturace@expan.do monthly.",
-      "offices": "🌍 Office in Praha (Karlín) and Havířov"
+      "offices": "🌍 Office in Praha and Havířov"
     },
     "onboardingTask": {
       "label": "ONBOARDING TASK (we'll do this on Day 1)",

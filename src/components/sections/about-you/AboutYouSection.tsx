@@ -6,6 +6,7 @@ import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { ProfileCard } from './ProfileCard';
 import { StatusPill } from './StatusPill';
 import { PracticalInfoModal } from './PracticalInfoModal';
+import { QuestionnaireModal } from './QuestionnaireModal';
 import { useAboutYouTasks } from './hooks/useAboutYouTasks';
 import type { NewHireConfig } from '@/types';
 
@@ -28,7 +29,8 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
   }, [config.startDate, language]);
 
   const [practicalInfoOpen, setPracticalInfoOpen] = useState(false);
-  // Step 4: contract / questionnaire still stubbed — wire in steps 5–6.
+  const [questionnaireOpen, setQuestionnaireOpen] = useState(false);
+  // Step 5: contract still stubbed — wires in step 6.
   const noop = () => {};
 
   return (
@@ -62,7 +64,7 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
             questionnaireDone={tasks.questionnaireDone}
             onPracticalInfoClick={() => setPracticalInfoOpen(true)}
             onContractClick={noop}
-            onQuestionnaireClick={noop}
+            onQuestionnaireClick={() => setQuestionnaireOpen(true)}
           />
         </div>
       </div>
@@ -71,6 +73,15 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
         open={practicalInfoOpen}
         onClose={() => setPracticalInfoOpen(false)}
         contractType={config.contractType}
+      />
+
+      <QuestionnaireModal
+        open={questionnaireOpen}
+        onClose={() => setQuestionnaireOpen(false)}
+        contractType={config.contractType}
+        slug={config.slug}
+        firstName={config.name}
+        onSubmitted={tasks.markQuestionnaireSubmitted}
       />
     </SectionWrapper>
   );

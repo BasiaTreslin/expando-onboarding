@@ -342,6 +342,41 @@
       "title": "Skvělá práce, {{firstName}}!"
     }
   },
+  "questionnaire": {
+    "title": "Osobní dotazník",
+    "subtitle": "Základní údaje pro HR a mzdu. Zabere zhruba 5 minut.",
+    "groups": {
+      "contact": "KONTAKTNÍ ÚDAJE",
+      "teamLunch": "PRO TEAM LUNCH & MERCH",
+      "zl": "ŽL — PRO PRE-FILL SMLOUVY"
+    },
+    "fields": {
+      "phone": { "label": "Telefonní číslo", "placeholder": "+420 123 456 789" },
+      "address": { "label": "Adresa", "placeholder": "Ulice, město, PSČ" },
+      "linkedin": { "label": "LinkedIn (volitelné)", "placeholder": "https://linkedin.com/in/…" },
+      "shirtSize": { "label": "Velikost trička", "placeholder": "Vyber…" },
+      "dietary": { "label": "Stravovací preference", "placeholder": "Vegetarián / vegan / žádné…" },
+      "allergies": { "label": "Alergie", "placeholder": "Žádné, nebo vypsat" },
+      "birthDate": { "label": "Datum narození (volitelné)" },
+      "ico": { "label": "IČO", "placeholder": "12345678" },
+      "bankAccount": { "label": "Bankovní účet", "placeholder": "123-456789012/0100" }
+    },
+    "validation": {
+      "phoneFormat": "Použij formát +420 123 456 789 (9–15 číslic).",
+      "addressMin": "Adresa musí mít alespoň 10 znaků.",
+      "linkedinFormat": "Použij celou URL začínající http(s)://.",
+      "shirtSizeRequired": "Vyber velikost.",
+      "dietaryRequired": "Vyplň stravovací preference (může být „žádné“).",
+      "allergiesRequired": "Vyplň alergie (může být „žádné“).",
+      "icoFormat": "IČO má 8 číslic.",
+      "bankAccountFormat": "Použij český formát, např. 123-456789012/0100."
+    },
+    "privacy": "Tvoje data zůstanou jen u Nikol a HR. Slouží pro přípravu smlouvy a tvůj první den.",
+    "cancel": "Zrušit",
+    "submit": "Uložit",
+    "success": "Hotovo! Tvoje odpovědi máme.",
+    "shirtSizes": ["S", "M", "L", "XL", "XXL"]
+  },
   "practicalInfo": {
     "title": "Praktické info",
     "subtitle": "Benefity, dovolená a perks v EXPANDO",
@@ -378,7 +413,7 @@
       "multisport": "🏋️ MultiSport karta — 50 % hradí EXPANDO (517 Kč místo 1 034 Kč). Domluv si s Emou od prvního dne.",
       "payrollHpp": "💸 Mzda do 10. každého měsíce na účet z dotazníku",
       "payrollZl": "💸 Faktury splatné do 7 dní (viz čl. 3.6 smlouvy). Posílej je na fakturace@expan.do v měsíčním cyklu.",
-      "offices": "🌍 Kanceláře v Praze (Karlín) a Havířově"
+      "offices": "🌍 Kancelář v Praze a Havířově"
     },
     "onboardingTask": {
       "label": "ONBOARDING TASK (uděláme společně Den 1)",
