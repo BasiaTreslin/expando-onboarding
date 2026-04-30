@@ -6,7 +6,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import type { Language } from '@/types';
 
 const NAV_ITEMS = [
-  { key: 'nav.profile', anchor: 'profile' },
+  { key: 'nav.profile', anchor: 'about-you' },
   { key: 'nav.team', anchor: 'team' },
   { key: 'nav.story', anchor: 'story' },
   { key: 'nav.values', anchor: 'values' },

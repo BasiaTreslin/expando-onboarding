@@ -1,6 +1,6 @@
 {
   "nav": {
-    "profile": "Your Profile",
+    "profile": "About You",
     "team": "Team",
     "story": "Our Story",
     "values": "Values",
@@ -20,36 +20,12 @@
     "cta": "Explore your guide",
     "scrollHint": "Scroll to begin"
   },
-  "profile": {
-    "title": "Your Profile & Day 1",
-    "subtitle": "Everything you need to know before you walk in the door.",
-    "role": "Role",
-    "team": "Team",
-    "startDate": "Start Date",
-    "startTime": "9:00 AM",
-    "buddy": "Your Buddy",
-    "teamLeader": "Team Leader",
-    "_deprecated": "profile.buddy and profile.teamLeader — unused after ProfileSection refactor, safe to remove in follow-up",
-    "contractType": "Contract Type",
-    "linkedinProfile": "LinkedIn",
-    "officeAddress": "Expando HQ, Praha"
-  },
   "profileTasks": {
     "questionnaire": {
       "title": "Fill out the personal questionnaire",
       "description": "Basic details for HR + payroll. Takes about 5 minutes.",
       "actionLabel": "Open questionnaire"
     }
-  },
-  "sayHi": {
-    "title": "Say hi",
-    "tabBuddy": "Message your buddy",
-    "tabLeader": "Message your leader",
-    "copy": "Copy",
-    "copied": "Copied!",
-    "openSlack": "Open in Slack",
-    "templateBuddy": "Hi {buddyName}, I'm {name}, starting {startDate} as {role}. Looking forward to it! Could we do a quick catch-up on day one?",
-    "templateLeader": "Hi {leaderName}, I'm {name}, starting {startDate} as {role}. Looking forward to our first 1:1 — let me know when works for you."
   },
   "story": {
     "title": "Our Story",
