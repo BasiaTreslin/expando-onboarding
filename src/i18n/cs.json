@@ -519,11 +519,12 @@
     "subtitle": "Tady jsou lidi, se kterými budeš pracovat. Jsou na tebe nachystaní.",
     "leaderLabel": "TVŮJ LEADER",
     "buddyLabel": "TVŮJ BUDDY",
+    "teamHeader": "Seznam se s {{teamName}}",
     "slackCta": "Napiš si na Slacku →"
   },
   "introduceYourself": {
-    "title": "Představ se",
-    "body": "Než přijdeš, řekni nám pár vět o sobě. Tým si tě tak může poznat dřív, než tě potká naživo.",
+    "title": "Představ se týmu",
+    "subtitle": "Dvě krátké otázky — uvidí je jen tvůj tým.",
     "fields": {
       "fullName": "Tvoje jméno",
       "whyExpando": "Proč ses rozhodl/a pro EXPANDO?",
@@ -531,7 +532,7 @@
     },
     "placeholders": {
       "whyExpando": "Co tě na nás zaujalo, co tě sem přivádí…",
-      "funFact": "Něco neobvyklého — koníček, dovednost, příhoda, na kterou jsi pyšný/á…"
+      "funFact": "Něco neobvyklého — koníček, dovednost, příhoda…"
     },
     "validation": {
       "whyExpandoMin": "Napiš alespoň 20 znaků.",
@@ -542,7 +543,6 @@
     "submitCta": "Uložit a sdílet s týmem",
     "success": {
       "title": "Skvělé! Tým se těší tě poznat.",
-      "body": "Tvoje odpovědi máme. Nikol je dostala — první den vás dáme dohromady.",
       "editAnswers": "Upravit odpovědi →"
     }
   }

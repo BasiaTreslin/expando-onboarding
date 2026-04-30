@@ -6,7 +6,7 @@ import { TasksIntroBanner } from '@/components/TasksIntroBanner';
 import { CelebrationPreview } from '@/components/CelebrationPreview';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutYouSection } from '@/components/sections/about-you/AboutYouSection';
-import { MeetTheTeamSection } from '@/components/sections/MeetTheTeamSection';
+import { AboutYourTeamSection } from '@/components/sections/about-your-team/AboutYourTeamSection';
 import { StorySection } from '@/components/sections/StorySection';
 import { ValuesSection } from '@/components/sections/ValuesSection';
 import { WhatWeDoSection } from '@/components/sections/WhatWeDoSection';
@@ -34,7 +34,7 @@ export function OnboardingPage({ config }: OnboardingPageProps) {
         <TasksIntroBanner slug={config.slug} hasTasks={hasTasks} />
         <HeroSection config={config} />
         <AboutYouSection config={config} />
-        <MeetTheTeamSection config={config} />
+        <AboutYourTeamSection config={config} />
         <StorySection />
         <ValuesSection />
         <WhatWeDoSection />

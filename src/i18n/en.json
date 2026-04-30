@@ -519,19 +519,20 @@
     "subtitle": "Here are the people you'll work with. They're ready for you.",
     "leaderLabel": "YOUR LEADER",
     "buddyLabel": "YOUR BUDDY",
+    "teamHeader": "Meet the {{teamName}}",
     "slackCta": "Say hi on Slack →"
   },
   "introduceYourself": {
     "title": "Introduce yourself",
-    "body": "Before you walk in, tell us a few things about yourself. The team can get to know you a bit before meeting you.",
+    "subtitle": "Two short questions — visible only to your team.",
     "fields": {
       "fullName": "Your name",
       "whyExpando": "Why did you choose EXPANDO?",
-      "funFact": "Share a fun fact about yourself 🎉"
+      "funFact": "Tell us a fun fact 🎉"
     },
     "placeholders": {
-      "whyExpando": "What caught your eye, what's bringing you here…",
-      "funFact": "Something unusual — a hobby, a skill, a story you're proud of…"
+      "whyExpando": "What drew you to us, what brings you here…",
+      "funFact": "Something unusual — hobby, skill, story…"
     },
     "validation": {
       "whyExpandoMin": "Please write at least 20 characters.",
@@ -541,8 +542,7 @@
     },
     "submitCta": "Save & share with the team",
     "success": {
-      "title": "Awesome! The team is excited to meet you.",
-      "body": "We've got your answers. Nikol has them — we'll introduce you on day 1.",
+      "title": "Awesome! The team can't wait to meet you.",
       "editAnswers": "Edit answers →"
     }
   }

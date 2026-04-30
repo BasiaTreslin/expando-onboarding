@@ -3,7 +3,7 @@
 import { Gift, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
-const OPEN_POSITIONS_URL = '#open-positions';
+const OPEN_POSITIONS_URL = 'https://www.cocuma.cz/company/expando/jobs/';
 
 export function ReferralProgramCard() {
   const { t, messages } = useLanguage();
