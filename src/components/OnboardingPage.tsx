@@ -2,7 +2,6 @@
 
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { Navigation } from '@/components/Navigation';
-import { TasksIntroBanner } from '@/components/TasksIntroBanner';
 import { CelebrationPreview } from '@/components/CelebrationPreview';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutYouSection } from '@/components/sections/about-you/AboutYouSection';
@@ -32,7 +31,6 @@ export function OnboardingPage({ config }: OnboardingPageProps) {
     <LanguageProvider defaultLanguage={config.language}>
       <Navigation />
       <main>
-        <TasksIntroBanner slug={config.slug} hasTasks={hasTasks} />
         <HeroSection config={config} />
         <AboutYouSection config={config} />
         <AboutYourTeamSection config={config} />
