@@ -351,6 +351,7 @@
       "zl": "ŽL — FOR CONTRACT PRE-FILL"
     },
     "fields": {
+      "personalEmail": { "label": "Personal email", "placeholder": "your@email.com" },
       "phone": { "label": "Phone number", "placeholder": "+420 123 456 789" },
       "address": { "label": "Address", "placeholder": "Street, city, postcode" },
       "linkedin": { "label": "LinkedIn (optional)", "placeholder": "https://linkedin.com/in/…" },
@@ -359,9 +360,11 @@
       "allergies": { "label": "Allergies", "placeholder": "None, or list them" },
       "birthDate": { "label": "Birth date" },
       "ico": { "label": "IČO", "placeholder": "12345678" },
-      "bankAccount": { "label": "Bank account", "placeholder": "123-456789012/0100" }
+      "bankAccount": { "label": "Bank account", "placeholder": "123-456789012/0100" },
+      "bankIban": { "label": "IBAN", "placeholder": "CZ65..." }
     },
     "validation": {
+      "personalEmailFormat": "Enter a valid email.",
       "phoneFormat": "Use format +420 123 456 789 (9–15 digits).",
       "addressMin": "Address must be at least 10 characters.",
       "linkedinFormat": "Use a full URL starting with http(s)://.",
@@ -375,6 +378,9 @@
     "privacy": "Your data stays with HR. We use it to prepare your contract and your first day.",
     "cancel": "Cancel",
     "submit": "Save",
+    "submitting": "Saving...",
+    "submitError": "Failed to submit. Please try again.",
+    "submitSuccess": "✅ Thanks, questionnaire submitted",
     "success": "Done! We've got your answers.",
     "shirtSizes": ["S", "M", "L", "XL", "XXL"]
   },

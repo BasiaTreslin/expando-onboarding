@@ -351,6 +351,7 @@
       "zl": "ŽL — PRO PRE-FILL SMLOUVY"
     },
     "fields": {
+      "personalEmail": { "label": "Soukromý email", "placeholder": "tvuj@email.cz" },
       "phone": { "label": "Telefonní číslo", "placeholder": "+420 123 456 789" },
       "address": { "label": "Adresa", "placeholder": "Ulice, město, PSČ" },
       "linkedin": { "label": "LinkedIn (volitelné)", "placeholder": "https://linkedin.com/in/…" },
@@ -359,9 +360,11 @@
       "allergies": { "label": "Alergie", "placeholder": "Žádné, nebo vypsat" },
       "birthDate": { "label": "Datum narození" },
       "ico": { "label": "IČO", "placeholder": "12345678" },
-      "bankAccount": { "label": "Bankovní účet", "placeholder": "123-456789012/0100" }
+      "bankAccount": { "label": "Bankovní účet", "placeholder": "123-456789012/0100" },
+      "bankIban": { "label": "IBAN", "placeholder": "CZ65..." }
     },
     "validation": {
+      "personalEmailFormat": "Zadej platný e-mail.",
       "phoneFormat": "Použij formát +420 123 456 789 (9–15 číslic).",
       "addressMin": "Adresa musí mít alespoň 10 znaků.",
       "linkedinFormat": "Použij celou URL začínající http(s)://.",
@@ -375,6 +378,9 @@
     "privacy": "Tvoje údaje zůstávají u HR. Používáme je k přípravě smlouvy a prvního dne.",
     "cancel": "Zrušit",
     "submit": "Uložit",
+    "submitting": "Ukládám...",
+    "submitError": "Nepodařilo se odeslat. Zkus to prosím znovu.",
+    "submitSuccess": "✅ Děkujeme, dotazník byl odeslán",
     "success": "Hotovo! Tvoje odpovědi máme.",
     "shirtSizes": ["S", "M", "L", "XL", "XXL"]
   },
