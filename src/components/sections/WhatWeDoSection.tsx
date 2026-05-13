@@ -70,8 +70,8 @@ export function WhatWeDoSection() {
             </div>
             {/* Floating stat card */}
             <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg px-5 py-4 border border-expando-gray-200">
-              <p className="text-3xl font-bold text-expando-orange">€75M+</p>
-              <p className="text-xs text-expando-gray-600 mt-0.5">GMV for clients</p>
+              <p className="text-3xl font-bold text-expando-orange">€100M+</p>
+              <p className="text-xs text-expando-gray-600 mt-0.5">Annual GMV for clients</p>
             </div>
             <div className="absolute -top-4 -right-4 bg-expando-orange rounded-xl shadow-lg px-5 py-4">
               <p className="text-3xl font-bold text-white">90+</p>

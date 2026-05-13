@@ -11,6 +11,7 @@ import { StorySection } from '@/components/sections/StorySection';
 import { ValuesSection } from '@/components/sections/ValuesSection';
 import { WhatWeDoSection } from '@/components/sections/WhatWeDoSection';
 import { ClientJourneySection } from '@/components/sections/ClientJourneySection';
+import { OurWaysOfWorkSection } from '@/components/sections/ways-of-work/OurWaysOfWorkSection';
 import { Day1ScheduleSection } from '@/components/sections/Day1ScheduleSection';
 import { Journey90DaySection } from '@/components/sections/Journey90DaySection';
 import { ToolsSection } from '@/components/sections/ToolsSection';
@@ -39,6 +40,7 @@ export function OnboardingPage({ config }: OnboardingPageProps) {
         <ValuesSection />
         <WhatWeDoSection />
         <ClientJourneySection />
+        <OurWaysOfWorkSection />
         <Day1ScheduleSection config={config} />
         <Journey90DaySection />
         <ToolsSection />

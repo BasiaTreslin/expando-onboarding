@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { key: 'nav.team', anchor: 'team' },
   { key: 'nav.story', anchor: 'story' },
   { key: 'nav.values', anchor: 'values' },
+  { key: 'nav.waysOfWork', anchor: 'ways-of-work' },
   { key: 'nav.day1', anchor: 'day-1' },
   { key: 'nav.90days', anchor: '90-days' },
   { key: 'nav.tools', anchor: 'tools' },

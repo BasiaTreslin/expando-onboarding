@@ -8,8 +8,6 @@ import { StatusPill } from './StatusPill';
 import { PracticalInfoModal } from './PracticalInfoModal';
 import { QuestionnaireModal } from './QuestionnaireModal';
 import { ContractModal } from './ContractModal';
-import { PerformanceReviewCard } from './PerformanceReviewCard';
-import { ReferralProgramCard } from './ReferralProgramCard';
 import { ContactsBlock } from './ContactsBlock';
 import { useAboutYouTasks } from './hooks/useAboutYouTasks';
 import type { NewHireConfig } from '@/types';
@@ -70,12 +68,8 @@ export function AboutYouSection({ config }: AboutYouSectionProps) {
             onQuestionnaireClick={() => setQuestionnaireOpen(true)}
           />
 
-          {/* Below-the-fold: secondary info + contacts */}
+          {/* Below-the-fold: contacts */}
           <div className="mt-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <PerformanceReviewCard />
-              <ReferralProgramCard />
-            </div>
             <ContactsBlock />
           </div>
         </div>
