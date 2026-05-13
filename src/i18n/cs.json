@@ -610,6 +610,26 @@
       }
     }
   },
+  "orgChart": {
+    "cardTitle": "Náš org chart",
+    "cardSubtitle": "Podívej se, jak je tým strukturovaný",
+    "cta": "Otevřít org chart",
+    "modalTitle": "EXPANDO Org Chart",
+    "modalSubtitle": "Kdo s kým pracuje napříč firmou",
+    "departments": {
+      "leadership": "Leadership",
+      "accountManagement": "Account Management",
+      "customerSuccess": "Customer Success",
+      "businessOps": "Business Operations",
+      "gtm": "Go-to-Market"
+    },
+    "subteams": {
+      "privateLabel": "Private Label",
+      "resell": "Resell",
+      "agencySupport": "Agency Support",
+      "newMarketplaces": "New Marketplaces"
+    }
+  },
   "gamification": {
     "modal": {
       "title": "Skvělá práce, {firstName}!"

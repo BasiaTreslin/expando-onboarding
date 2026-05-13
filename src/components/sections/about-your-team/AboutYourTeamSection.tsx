@@ -5,6 +5,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { getTeamById, resolveSayHiHref, isSlackHref } from '@/data/teams';
 import { IntroduceYourselfForm } from './IntroduceYourselfForm';
+import { OrgChartCard } from './OrgChartCard';
 import type { NewHireConfig, TeamMember } from '@/types';
 
 interface AboutYourTeamSectionProps {
@@ -245,6 +246,11 @@ export function AboutYourTeamSection({ config }: AboutYourTeamSectionProps) {
             fullName={config.fullName}
             firstName={config.name}
           />
+        </div>
+
+        {/* Org chart card */}
+        <div className="max-w-3xl mx-auto mt-8">
+          <OrgChartCard />
         </div>
       </div>
     </SectionWrapper>
