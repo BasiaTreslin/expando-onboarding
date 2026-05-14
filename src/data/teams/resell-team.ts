@@ -13,6 +13,9 @@ export const resellTeam: Team = {
       photo: '/team/jakub-petrek.png',
       location: 'Praha',
       email: 'jakub@expan.do',
+      bio: `I work as an Account Manager at EXPANDO, taking care of strategic projects.
+
+In my spare time I'm a sports guy — gym, hockey, snowboarding. I love travelling, especially to warm places. And when it comes to slowing down, give me good food and a cold beer. 🍺`,
     },
     {
       id: 'jakub-zemlicka',
@@ -32,6 +35,9 @@ In my free time I've been renovating my friend's boat and building a "summer res
       photo: '/team/jan-jenista.png',
       location: 'Praha',
       email: 'jan.jenista@expan.do',
+      bio: `Jsem Key Account Manager pro Amazon — staráme se o celkový rozvoj účtů našich klientů.
+
+Mojí největší radostí jsou teď moji dva synové, Jakub a Štěpán. Miluju cestování a hory, nejlépe v kombinaci s rodinou a přáteli. Žiju jídlem a vařením, baví mě ochutnávat nové pokrmy a kombinace chutí. A jsem velký fanoušek Chelsea a dobrého fotbalu.`,
     },
     {
       id: 'michal-mazurek',
@@ -40,6 +46,9 @@ In my free time I've been renovating my friend's boat and building a "summer res
       photo: '/team/michal-mazurek.png',
       location: 'Praha',
       email: 'michal.mazurek@expan.do',
+      bio: `Ahoj, jsem Michal — Key Account Manager. Pozitivně naladěná a energická osoba.
+
+Rád sportuju — od posilování přes badminton až po snowboarding. Jsem společenský a rád trávím čas s kamarády. Mám vášeň pro hudbu a umění (sbírám obrazy a objevuju nové žánry), a miluju Itálii — kvůli jídlu i památkám.`,
     },
     {
       id: 'patrik-oramus',
@@ -48,6 +57,9 @@ In my free time I've been renovating my friend's boat and building a "summer res
       photo: '/team/patrik-oramus.jpg',
       location: 'Praha',
       email: 'patrik.oramus@expan.do',
+      bio: `V EXPANDO jsem dlouho působil jako Key Account Manager — staral jsem se o klienty jako MRO nebo Metrie. Postupně jsem se přesunul do GTM týmu, kde mám teď na starosti Partnerships.
+
+Mimo práci jsem nadšenec do seriálů — Rome, Billions, Breaking Bad, Peaky Blinders, Better Call Saul, Mr. Robot, Dark a desítky dalších v top tier kategorii.`,
     },
   ],
 };
