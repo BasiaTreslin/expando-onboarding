@@ -268,10 +268,10 @@
     "channel": "Channel",
     "rows": [
       { "situation": "Anything in your first 4 weeks", "contact": "Your buddy", "channel": "Slack DM" },
-      { "situation": "Contract, HR, or admin questions", "contact": "Your Team Leader", "channel": "Slack DM" },
-      { "situation": "Non-Amazon marketplace questions", "contact": "New MP Team", "channel": "#am-team-new-mp" },
-      { "situation": "Feed sync or EXPANDO APP issues", "contact": "Tech Team", "channel": "Slack #tech" },
-      { "situation": "Well-being, culture, anything personal", "contact": "Operations", "channel": "Slack DM or in person" }
+      { "situation": "Contract, HR, or admin questions", "contact": "Ema Nováková", "channel": "Slack DM" },
+      { "situation": "Knowledge lookup — docs, processes, wiki", "contact": "Vševěd", "channel": "@vseved on Slack" },
+      { "situation": "Data, drafts, workflows — anything ops-related", "contact": "Agent 42", "channel": "@42 on Slack" },
+      { "situation": "Your 90-day onboarding journey — milestones & weekly check-ins", "contact": "Onboarding Coach", "channel": "coming soon", "comingSoon": true }
     ]
   },
   "cta": {

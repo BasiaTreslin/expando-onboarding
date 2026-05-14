@@ -268,10 +268,10 @@
     "channel": "Kanál",
     "rows": [
       { "situation": "Cokoliv v prvních 4 týdnech", "contact": "Tvůj buddy", "channel": "Slack DM" },
-      { "situation": "Smluvní, HR nebo admin otázky", "contact": "Tvůj team leader", "channel": "Slack DM" },
-      { "situation": "Otázky k non-Amazon marketplace", "contact": "New MP tým", "channel": "#am-team-new-mp" },
-      { "situation": "Problémy s feedem nebo EXPANDO APP", "contact": "Tech tým", "channel": "Slack #tech" },
-      { "situation": "Well-being, kultura, osobní věci", "contact": "Operations", "channel": "Slack DM nebo osobně" }
+      { "situation": "Smluvní, HR nebo admin otázky", "contact": "Ema Nováková", "channel": "Slack DM" },
+      { "situation": "Vyhledání v knowledge base — dokumenty, procesy, wiki", "contact": "Vševěd", "channel": "@vseved na Slacku" },
+      { "situation": "Data, drafty, workflows — cokoliv operativního", "contact": "Agent 42", "channel": "@42 na Slacku" },
+      { "situation": "Tvoje 90denní onboarding cesta — milníky a týdenní check-iny", "contact": "Onboarding Coach", "channel": "už brzy", "comingSoon": true }
     ]
   },
   "cta": {
