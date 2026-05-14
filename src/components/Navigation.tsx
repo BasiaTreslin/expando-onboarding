@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import type { Language } from '@/types';
@@ -10,6 +11,7 @@ const NAV_ITEMS = [
   { key: 'nav.team', anchor: 'team' },
   { key: 'nav.story', anchor: 'story' },
   { key: 'nav.values', anchor: 'values' },
+  { key: 'nav.waysOfWork', anchor: 'ways-of-work' },
   { key: 'nav.day1', anchor: 'day-1' },
   { key: 'nav.90days', anchor: '90-days' },
   { key: 'nav.tools', anchor: 'tools' },
@@ -63,10 +65,17 @@ export function Navigation() {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="font-bold text-xl tracking-tight text-expando-gray-900 hover:text-expando-orange transition-colors"
+            className="relative h-8 w-auto transition-opacity hover:opacity-80"
             aria-label="EXPANDO — scroll to top"
           >
-            EXPANDO
+            <Image
+              src={scrolled ? '/logo/expando-logo-dark.png' : '/logo/expando-logo-white.png'}
+              alt="EXPANDO"
+              width={168}
+              height={32}
+              priority
+              className="h-8 w-auto"
+            />
           </button>
 
           {/* Desktop nav */}

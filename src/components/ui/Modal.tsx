@@ -10,7 +10,7 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   description?: string;
-  size?: 'md' | 'lg';
+  size?: 'md' | 'lg' | 'xl';
   initialFocusRef?: React.RefObject<HTMLElement>;
   closeOnBackdropClick?: boolean;
   children: React.ReactNode;
@@ -102,7 +102,7 @@ export function Modal({
 
   if (!mounted || !open) return null;
 
-  const sizeClass = size === 'md' ? 'sm:max-w-lg' : 'sm:max-w-[720px]';
+  const sizeClass = size === 'md' ? 'sm:max-w-lg' : size === 'xl' ? 'sm:max-w-6xl' : 'sm:max-w-[720px]';
 
   return createPortal(
     <div

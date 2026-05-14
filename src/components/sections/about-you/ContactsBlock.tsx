@@ -2,7 +2,6 @@
 
 import { useLanguage } from '@/i18n/LanguageContext';
 
-const HR_EMAIL = 'mailto:ema.novakova@expan.do';
 const IT_SLACK_URL = 'slack://channel?id=PLACEHOLDER';
 
 interface Row {
@@ -22,18 +21,18 @@ export function ContactsBlock() {
       emoji: '💬',
       labelKey: 'contacts.rows.hr',
       value: (
-        <a href={HR_EMAIL} className={linkClass}>
+        <span className="text-expando-gray-900">
           {t('contacts.values.hrPerson')}
-        </a>
+        </span>
       ),
     },
     {
       emoji: '🏋️',
       labelKey: 'contacts.rows.multisport',
       value: (
-        <a href={HR_EMAIL} className={linkClass}>
+        <span className="text-expando-gray-900">
           {t('contacts.values.multisportPerson')}
-        </a>
+        </span>
       ),
     },
     {

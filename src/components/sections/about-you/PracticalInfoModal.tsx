@@ -101,6 +101,7 @@ export function PracticalInfoModal({
               : t('practicalInfo.perks.payrollHpp')}
           </li>
           <li>{t('practicalInfo.perks.offices')}</li>
+          <li>{t('practicalInfo.perks.referral')}</li>
         </ul>
       </Section>
 

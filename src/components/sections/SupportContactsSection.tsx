@@ -8,6 +8,7 @@ interface SupportRow {
   situation: string;
   contact: string;
   channel: string;
+  comingSoon?: boolean;
 }
 
 interface SupportContactsProps {
@@ -17,12 +18,16 @@ interface SupportContactsProps {
 export function SupportContactsSection({ config }: SupportContactsProps) {
   const { t, messages } = useLanguage();
 
-  // Inject buddy and leader names into first two rows
+  // Inject buddy name into the first row; the rest are static.
   const rows = (messages.support.rows as SupportRow[]).map((row, i) => {
     if (i === 0) return { ...row, contact: config.buddy.name };
-    if (i === 1) return { ...row, contact: config.leader.name };
     return row;
   });
+
+  const channelClass = (comingSoon?: boolean) =>
+    comingSoon
+      ? 'text-xs bg-expando-gray-50 text-expando-gray-600 px-2 py-1 rounded-lg font-mono border border-expando-gray-200'
+      : 'text-xs bg-expando-orange-soft text-expando-orange px-2 py-1 rounded-lg font-mono';
 
   return (
     <SectionWrapper id="support" className="py-20 sm:py-28 bg-white">
@@ -58,7 +63,7 @@ export function SupportContactsSection({ config }: SupportContactsProps) {
                     <span className="text-sm font-semibold text-expando-gray-900">{row.contact}</span>
                   </td>
                   <td className="px-5 py-4">
-                    <code className="text-xs bg-expando-orange-soft text-expando-orange px-2 py-1 rounded-lg font-mono">
+                    <code className={channelClass(row.comingSoon)}>
                       {row.channel}
                     </code>
                   </td>
@@ -75,7 +80,7 @@ export function SupportContactsSection({ config }: SupportContactsProps) {
               <p className="text-sm text-expando-gray-700 mb-2">{row.situation}</p>
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <span className="font-semibold text-expando-gray-900 text-sm">{row.contact}</span>
-                <code className="text-xs bg-expando-orange-soft text-expando-orange px-2 py-1 rounded-lg font-mono">
+                <code className={channelClass(row.comingSoon)}>
                   {row.channel}
                 </code>
               </div>
