@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import type { Language } from '@/types';
@@ -64,10 +65,17 @@ export function Navigation() {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="font-bold text-xl tracking-tight text-expando-gray-900 hover:text-expando-orange transition-colors"
+            className="relative h-8 w-auto transition-opacity hover:opacity-80"
             aria-label="EXPANDO — scroll to top"
           >
-            EXPANDO
+            <Image
+              src={scrolled ? '/logo/expando-logo-dark.png' : '/logo/expando-logo-white.png'}
+              alt="EXPANDO"
+              width={168}
+              height={32}
+              priority
+              className="h-8 w-auto"
+            />
           </button>
 
           {/* Desktop nav */}
