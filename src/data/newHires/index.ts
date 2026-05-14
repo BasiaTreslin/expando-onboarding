@@ -50,6 +50,9 @@ const HIRE_OVERLAYS: Record<string, HireOverlay> = {
       photo: '/team/lukas-doskocil.png',
       email: 'lukas.doskocil@expan.do',
       slackUserId: 'U094LQ5CMHV',
+      bio: `Hi, I'm Lukáš — Head of Agency at EXPANDO. Originally from Nový Bor, a little glass-making town in Bohemia, currently based in Milan, Italy.
+
+I love travel and history (ancient Egypt is the best!), I'm seriously into books — Terry Pratchett's Discworld series tops the list — and a massive sports fan: West Ham United and Bílí Tygři Liberec all the way.`,
     },
     buddy: {
       id: 'jakub-zemlicka',
@@ -58,6 +61,9 @@ const HIRE_OVERLAYS: Record<string, HireOverlay> = {
       photo: '/team/jakub-zemlicka.png',
       email: 'jakub.zemlicka@expan.do',
       slackUserId: 'U01RR6QEEUW',
+      bio: `I'm an Account Manager at EXPANDO, taking care of clients and making sure the resell side runs smoothly.
+
+In my free time I've been renovating my friend's boat and building a "summer resort" with my dad at Slapy. I love bodyweight training, yoga, and meditation — and I keep trying running, though it's a real challenge (anyone want to join?). Travel is the third pillar — never easy these days, but "where there's a will, there's a way". And family time? Always the best part.`,
     },
     teamId: 'resell-team',
     profileTasks: [
