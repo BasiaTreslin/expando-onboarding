@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { Play, Linkedin, Instagram, Mail } from 'lucide-react';
+import { Play, Linkedin } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
@@ -103,22 +103,10 @@ export function FinalCTASection({ config }: FinalCTAProps) {
               <p className="text-expando-orange font-bold text-xl">{t('cta.signature')}</p>
             </div>
 
-            {/* Contact */}
-            <div className="flex items-center gap-2 text-white/60 text-sm mb-6">
-              <Mail size={14} />
-              <span>{t('cta.questionsLabel')}</span>
-              <a
-                href="mailto:people@expando.com"
-                className="text-expando-orange hover:text-expando-orange-hover transition-colors font-medium"
-              >
-                people@expando.com
-              </a>
-            </div>
-
             {/* Social links */}
             <div className="flex gap-3">
               <a
-                href="https://www.linkedin.com/company/expando/"
+                href="https://www.linkedin.com/company/expandoglobal/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/20 text-white/70
@@ -126,16 +114,6 @@ export function FinalCTASection({ config }: FinalCTAProps) {
               >
                 <Linkedin size={16} />
                 {t('cta.linkedin')}
-              </a>
-              <a
-                href="https://www.instagram.com/expando.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/20 text-white/70
-                           hover:bg-white/10 hover:text-white transition-colors text-sm font-medium"
-              >
-                <Instagram size={16} />
-                {t('cta.instagram')}
               </a>
             </div>
           </div>
@@ -163,7 +141,13 @@ export function FinalCTASection({ config }: FinalCTAProps) {
 
         {/* Bottom: EXPANDO brand stamp */}
         <div className="mt-16 pt-8 border-t border-white/10 flex items-center justify-between gap-4 flex-wrap">
-          <p className="text-white font-bold text-xl tracking-tight">EXPANDO</p>
+          <Image
+            src="/logo/expando-logo-white.png"
+            alt="EXPANDO"
+            width={168}
+            height={32}
+            className="h-8 w-auto"
+          />
           <p className="text-white/40 text-xs">
             onboarding.expando.com · &copy; {new Date().getFullYear()} EXPANDO. All rights reserved.
           </p>
