@@ -21,6 +21,9 @@ export const resellTeam: Team = {
       photo: '/team/jakub-zemlicka.png',
       location: 'Praha',
       email: 'jakub.zemlicka@expan.do',
+      bio: `I'm an Account Manager at EXPANDO, taking care of clients and making sure the resell side runs smoothly.
+
+In my free time I've been renovating my friend's boat and building a "summer resort" with my dad at Slapy. I love bodyweight training, yoga, and meditation — and I keep trying running, though it's a real challenge (anyone want to join?). Travel is the third pillar — never easy these days, but "where there's a will, there's a way". And family time? Always the best part.`,
     },
     {
       id: 'jan-jenista',

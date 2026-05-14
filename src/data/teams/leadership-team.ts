@@ -29,6 +29,9 @@ export const leadershipTeam: Team = {
       photo: '/team/lukas-doskocil.png',
       location: 'Amsterdam',
       email: 'lukas.doskocil@expan.do',
+      bio: `Hi, I'm Lukáš — Head of Agency at EXPANDO. Originally from Nový Bor, a little glass-making town in Bohemia, currently based in Milan, Italy.
+
+I love travel and history (ancient Egypt is the best!), I'm seriously into books — Terry Pratchett's Discworld series tops the list — and a massive sports fan: West Ham United and Bílí Tygři Liberec all the way.`,
     },
     {
       id: 'ilona-medova',

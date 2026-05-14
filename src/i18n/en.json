@@ -490,7 +490,8 @@
     "leaderLabel": "YOUR LEADER",
     "buddyLabel": "YOUR BUDDY",
     "teamHeader": "Meet the {{teamName}}",
-    "slackCta": "Say hi on Slack →"
+    "slackCta": "Say hi on Slack →",
+    "aboutMeCta": "About me →"
   },
   "introduceYourself": {
     "title": "Introduce yourself",

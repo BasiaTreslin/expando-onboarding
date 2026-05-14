@@ -490,7 +490,8 @@
     "leaderLabel": "TVŮJ LEADER",
     "buddyLabel": "TVŮJ BUDDY",
     "teamHeader": "Seznam se s {{teamName}}",
-    "slackCta": "Napiš si na Slacku →"
+    "slackCta": "Napiš si na Slacku →",
+    "aboutMeCta": "O mně →"
   },
   "introduceYourself": {
     "title": "Představ se týmu",
