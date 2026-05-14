@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { LoginForm } from './LoginForm';
 
 export const metadata: Metadata = {
@@ -22,8 +23,15 @@ export default function LoginPage() {
       </div>
 
       <div className="relative z-10 w-full max-w-sm">
-        <div className="text-center mb-8">
-          <p className="text-white font-bold text-2xl tracking-tight mb-2">EXPANDO</p>
+        <div className="flex flex-col items-center mb-8">
+          <Image
+            src="/logo/expando-logo-white.png"
+            alt="EXPANDO"
+            width={210}
+            height={40}
+            priority
+            className="h-10 w-auto mb-2"
+          />
           <p className="text-white/60 text-sm">Onboarding</p>
         </div>
 
