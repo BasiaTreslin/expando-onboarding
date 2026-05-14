@@ -16,7 +16,6 @@ import { Journey90DaySection } from '@/components/sections/Journey90DaySection';
 import { ToolsSection } from '@/components/sections/ToolsSection';
 import { GlossarySection } from '@/components/sections/GlossarySection';
 import { SupportContactsSection } from '@/components/sections/SupportContactsSection';
-import { PreReadingSection } from '@/components/sections/PreReadingSection';
 import { FinalCTASection } from '@/components/sections/FinalCTASection';
 import type { NewHireConfig } from '@/types';
 
@@ -44,7 +43,6 @@ export function OnboardingPage({ config }: OnboardingPageProps) {
         <ToolsSection />
         <GlossarySection />
         <SupportContactsSection config={config} />
-        <PreReadingSection config={config} />
         <FinalCTASection config={config} />
       </main>
       <CelebrationPreview config={config} />

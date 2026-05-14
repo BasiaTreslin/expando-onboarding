@@ -274,17 +274,6 @@
       { "situation": "Well-being, kultura, osobní věci", "contact": "Operations", "channel": "Slack DM nebo osobně" }
     ]
   },
-  "prereading": {
-    "title": "Před Den 1",
-    "subtitle": "Nepovinné, ale stojí za to. Přijď s kontextem.",
-    "links": [
-      { "icon": "book-open", "label": "EXPANDO Sales Bible", "desc": "Strategický základ — jak přemýšlíme o prodeji" },
-      { "icon": "book", "label": "Sales Handbook 2025", "desc": "Praktický playbook pro prvních 90 dní" },
-      { "icon": "building-2", "label": "Team Hub (tvoje role)", "desc": "Onboarding materiály a procesy specifické pro tvoji roli" },
-      { "icon": "mail", "label": "Pre-onboarding Bulletin", "desc": "Originální bulletin, který jsi možná již obdržel" },
-      { "icon": "map", "label": "Resource Map", "desc": "Mapa všeho, co budeš potřebovat — specifická pro tvoji roli" }
-    ]
-  },
   "cta": {
     "title": "Těšíme se na tebe.",
     "subtitle": "Nepotřebuješ mít všechny odpovědi před Den 1. Přijď zvědavý, buď otevřený a důvěřuj procesu. Máme tě.",

@@ -274,17 +274,6 @@
       { "situation": "Well-being, culture, anything personal", "contact": "Operations", "channel": "Slack DM or in person" }
     ]
   },
-  "prereading": {
-    "title": "Before Day 1",
-    "subtitle": "Optional but worth it. Arrive with context.",
-    "links": [
-      { "icon": "book-open", "label": "EXPANDO Sales Bible", "desc": "The strategic foundation — how we think about sales" },
-      { "icon": "book", "label": "Sales Handbook 2025", "desc": "Practical playbook for your first 90 days" },
-      { "icon": "building-2", "label": "Team Hub (your role)", "desc": "Role-specific onboarding resources and processes" },
-      { "icon": "mail", "label": "Pre-onboarding Bulletin", "desc": "The original bulletin you may have already received" },
-      { "icon": "map", "label": "Resource Map", "desc": "Your role-specific map of everything you'll need" }
-    ]
-  },
   "cta": {
     "title": "We're excited to have you.",
     "subtitle": "You don't need to have all the answers before Day 1. Come curious, be open, and trust the process. We've got you.",
