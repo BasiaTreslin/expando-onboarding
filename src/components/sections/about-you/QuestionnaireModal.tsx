@@ -351,7 +351,6 @@ export function QuestionnaireModal({
                 className={inputClass(!!errors.address)}
               />
             </Field>
-
             <GroupHeader>{t('questionnaire.groups.teamLunch')}</GroupHeader>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field

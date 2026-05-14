@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
     const { data: hire, error: hireError } = await admin
       .from('new_hires')
-      .select('id, full_name, work_location, start_date, team, role, contract_type')
+      .select('id, full_name, start_date, team, role, contract_type')
       .eq('slug', hireSlug)
       .maybeSingle();
 
@@ -116,6 +116,7 @@ async function syncToGoogle(
       ico: str(submissionData.ico),
       cisloUctu: str(submissionData.bank_account),
       iban: str(submissionData.bank_iban),
+      company: 'AGENCY',
     });
   } catch (err) {
     console.error('[questionnaire/submit] Google Sheets sync failed', err);

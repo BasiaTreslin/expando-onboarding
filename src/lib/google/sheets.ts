@@ -17,6 +17,7 @@ export interface NewHireSheetRow {
   ico: string;
   cisloUctu: string;
   iban: string;
+  company?: string;
 }
 
 export async function appendNewHireRow(data: NewHireSheetRow): Promise<void> {
@@ -44,6 +45,7 @@ export async function appendNewHireRow(data: NewHireSheetRow): Promise<void> {
     data.ico,
     data.cisloUctu,
     data.iban,
+    data.company ?? 'AGENCY',
   ];
 
   await sheets.spreadsheets.values.append({
