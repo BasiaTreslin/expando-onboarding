@@ -4,6 +4,8 @@ import {
   mapFormToDb,
   questionnaireFormSchema,
 } from '@/lib/validation/questionnaire';
+import { appendNewHireRow } from '@/lib/google/sheets';
+import { createEmployeeFolder } from '@/lib/google/drive';
 
 export const runtime = 'nodejs';
 
@@ -33,7 +35,7 @@ export async function POST(req: Request) {
 
     const { data: hire, error: hireError } = await admin
       .from('new_hires')
-      .select('id')
+      .select('id, full_name, start_date, team, role, contract_type')
       .eq('slug', hireSlug)
       .maybeSingle();
 
@@ -67,9 +69,61 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Internal error' }, { status: 500 });
     }
 
+    // Fire-and-forget: sync to Google Sheets + Drive without blocking the response
+    void syncToGoogle(hire, submissionData);
+
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[questionnaire/submit] unexpected error', err);
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });
+  }
+}
+
+interface HireRecord {
+  full_name: string;
+  work_location?: string | null;
+  start_date: string;
+  team: string;
+  role: string;
+  contract_type: string;
+}
+
+async function syncToGoogle(
+  hire: HireRecord,
+  submissionData: Record<string, unknown>
+): Promise<void> {
+  const fullNameParts = hire.full_name.trim().split(' ');
+  const firstName = fullNameParts.slice(0, -1).join(' ') || hire.full_name;
+  const lastName = fullNameParts.length > 1 ? fullNameParts[fullNameParts.length - 1] : '';
+
+  const str = (v: unknown) => (typeof v === 'string' ? v : '');
+
+  try {
+    await appendNewHireRow({
+      prijmeni: lastName,
+      jmeno: firstName,
+      birth_date: str(submissionData.birth_date),
+      personal_email: str(submissionData.personal_email),
+      phone: str(submissionData.phone),
+      nastup: hire.start_date,
+      department: hire.team,
+      pozice: hire.role,
+      company: 'AGENCY',
+      address: str(submissionData.address),
+      linkedin: str(submissionData.linkedin),
+      tshirt_size: str(submissionData.tshirt_size),
+      dietary_restrictions: str(submissionData.dietary_restrictions),
+      food_allergies: str(submissionData.food_allergies),
+      ico: str(submissionData.ico),
+      bank_account: str(submissionData.bank_account),
+    });
+  } catch (err) {
+    console.error('[questionnaire/submit] Google Sheets sync failed', err);
+  }
+
+  try {
+    await createEmployeeFolder(hire.full_name);
+  } catch (err) {
+    console.error('[questionnaire/submit] Google Drive folder creation failed', err);
   }
 }
