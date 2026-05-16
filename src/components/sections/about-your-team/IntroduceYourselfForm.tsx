@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Check } from 'lucide-react';
+import { Check, Upload, X, ImageIcon, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { CelebrationPop } from '@/components/CelebrationPop';
 import { getCompletedTasks, markTaskCompleted } from '@/lib/taskStorage';
@@ -13,22 +13,29 @@ interface IntroduceYourselfFormProps {
 }
 
 interface FormData {
-  whyExpando: string;
-  funFact: string;
+  bio: string;
+  photoDataUrl: string | null;
+  photoFileName: string | null;
+  photoMimeType: string | null;
 }
 
 const TASK_ID = 'introduce-yourself:submitted';
-const EMPTY: FormData = { whyExpando: '', funFact: '' };
+const EMPTY: FormData = {
+  bio: '',
+  photoDataUrl: null,
+  photoFileName: null,
+  photoMimeType: null,
+};
 
-const WHY_MIN = 20;
-const WHY_MAX = 500;
-const FUN_MIN = 10;
-const FUN_MAX = 300;
+const BIO_MIN = 30;
+const BIO_MAX = 600;
+const PHOTO_MAX_BYTES = 5 * 1024 * 1024;
+const ALLOWED_MIME = ['image/jpeg', 'image/png', 'image/webp'];
 
-type Errors = Partial<Record<keyof FormData, string>>;
+type Errors = Partial<Record<'bio' | 'photo', string>>;
 
 function draftKey(slug: string): string {
-  return `expando-onboarding:${slug}:introduce-yourself-draft`;
+  return `expando-onboarding:${slug}:introduce-yourself-draft-v2`;
 }
 
 function loadDraft(slug: string): FormData | null {
@@ -50,24 +57,27 @@ function saveDraft(slug: string, data: FormData): void {
   }
 }
 
-function validate(
-  data: FormData,
-  t: (k: string) => string
-): Errors {
+function validate(data: FormData, t: (k: string) => string): Errors {
   const e: Errors = {};
-  const why = data.whyExpando.trim().length;
-  if (why < WHY_MIN) {
-    e.whyExpando = t('introduceYourself.validation.whyExpandoMin');
-  } else if (why > WHY_MAX) {
-    e.whyExpando = t('introduceYourself.validation.whyExpandoMax');
+  const bioLen = data.bio.trim().length;
+  if (bioLen < BIO_MIN) {
+    e.bio = t('introduceYourself.validation.bioMin');
+  } else if (bioLen > BIO_MAX) {
+    e.bio = t('introduceYourself.validation.bioMax');
   }
-  const fun = data.funFact.trim().length;
-  if (fun < FUN_MIN) {
-    e.funFact = t('introduceYourself.validation.funFactMin');
-  } else if (fun > FUN_MAX) {
-    e.funFact = t('introduceYourself.validation.funFactMax');
+  if (!data.photoDataUrl) {
+    e.photo = t('introduceYourself.validation.photoRequired');
   }
   return e;
+}
+
+function fileToDataUrl(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(new Error('Read failed'));
+    reader.readAsDataURL(file);
+  });
 }
 
 export function IntroduceYourselfForm({
@@ -77,6 +87,7 @@ export function IntroduceYourselfForm({
 }: IntroduceYourselfFormProps) {
   const { t } = useLanguage();
   const formRef = useRef<HTMLFormElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [mounted, setMounted] = useState(false);
   const [data, setData] = useState<FormData>(EMPTY);
@@ -84,9 +95,10 @@ export function IntroduceYourselfForm({
   const [touched, setTouched] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [editing, setEditing] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [confettiKey, setConfettiKey] = useState<number | null>(null);
 
-  // Load draft + submitted flag on mount
   useEffect(() => {
     setMounted(true);
     const isDone = !!getCompletedTasks(slug)[TASK_ID];
@@ -95,14 +107,12 @@ export function IntroduceYourselfForm({
     setData(loadDraft(slug) ?? EMPTY);
   }, [slug]);
 
-  // Debounced draft save while editing
   useEffect(() => {
     if (!mounted || !editing) return;
     const timer = setTimeout(() => saveDraft(slug, data), 500);
     return () => clearTimeout(timer);
   }, [mounted, editing, slug, data]);
 
-  // Live re-validate after first submit attempt
   useEffect(() => {
     if (touched) setErrors(validate(data, t));
   }, [touched, data, t]);
@@ -112,17 +122,68 @@ export function IntroduceYourselfForm({
     [data, t]
   );
 
-  const update =
-    (field: keyof FormData) =>
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setData((d) => ({ ...d, [field]: e.target.value }));
-    };
+  const updateBio = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setData((d) => ({ ...d, bio: e.target.value }));
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handlePhotoChange = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setSubmitError(null);
+
+    if (!ALLOWED_MIME.includes(file.type)) {
+      setErrors((p) => ({
+        ...p,
+        photo: t('introduceYourself.validation.photoWrongType'),
+      }));
+      return;
+    }
+    if (file.size > PHOTO_MAX_BYTES) {
+      setErrors((p) => ({
+        ...p,
+        photo: t('introduceYourself.validation.photoTooLarge'),
+      }));
+      return;
+    }
+
+    try {
+      const dataUrl = await fileToDataUrl(file);
+      setData((d) => ({
+        ...d,
+        photoDataUrl: dataUrl,
+        photoFileName: file.name,
+        photoMimeType: file.type,
+      }));
+      setErrors((p) => ({ ...p, photo: undefined }));
+    } catch {
+      setErrors((p) => ({
+        ...p,
+        photo: t('introduceYourself.validation.photoWrongType'),
+      }));
+    } finally {
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
+
+  const removePhoto = () => {
+    setData((d) => ({
+      ...d,
+      photoDataUrl: null,
+      photoFileName: null,
+      photoMimeType: null,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched(true);
+    setSubmitError(null);
     const next = validate(data, t);
     setErrors(next);
+
     if (Object.keys(next).length > 0) {
       requestAnimationFrame(() => {
         const firstInvalid = formRef.current?.querySelector<HTMLElement>(
@@ -134,15 +195,44 @@ export function IntroduceYourselfForm({
       return;
     }
 
-    console.log('[introduce-yourself] submit', data);
-    saveDraft(slug, data);
-    markTaskCompleted(slug, TASK_ID);
-    setSubmitted(true);
-    setEditing(false);
-    setConfettiKey(Date.now());
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/profile-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          hire_slug: slug,
+          data: {
+            bio: data.bio.trim(),
+            photo: data.photoDataUrl
+              ? {
+                  dataUrl: data.photoDataUrl,
+                  fileName: data.photoFileName,
+                  mimeType: data.photoMimeType,
+                }
+              : null,
+          },
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+
+      saveDraft(slug, data);
+      markTaskCompleted(slug, TASK_ID);
+      setSubmitted(true);
+      setEditing(false);
+      setConfettiKey(Date.now());
+    } catch (err) {
+      console.error('[introduce-yourself] submit failed', err);
+      setSubmitError(t('introduceYourself.errors.submitFailed'));
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  const submitDisabled = touched && !isValid;
+  const submitDisabled = (touched && !isValid) || submitting;
   const showSuccess = mounted && submitted && !editing;
 
   return (
@@ -162,7 +252,11 @@ export function IntroduceYourselfForm({
 
           <div className="mt-6">
             {showSuccess ? (
-              <SuccessView onEdit={() => setEditing(true)} />
+              <SuccessView
+                onEdit={() => setEditing(true)}
+                photoDataUrl={data.photoDataUrl}
+                bio={data.bio}
+              />
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} noValidate>
                 <Field
@@ -181,44 +275,60 @@ export function IntroduceYourselfForm({
                 </Field>
 
                 <Field
-                  id="iy-whyExpando"
-                  label={t('introduceYourself.fields.whyExpando')}
+                  id="iy-photo"
+                  label={t('introduceYourself.fields.photo')}
                   required
-                  error={errors.whyExpando}
-                  count={data.whyExpando.length}
-                  max={WHY_MAX}
+                  error={errors.photo}
                 >
-                  <textarea
-                    id="iy-whyExpando"
-                    rows={4}
-                    placeholder={t(
-                      'introduceYourself.placeholders.whyExpando'
-                    )}
-                    value={data.whyExpando}
-                    onChange={update('whyExpando')}
-                    aria-invalid={!!errors.whyExpando}
-                    className={textareaClass(!!errors.whyExpando)}
+                  <PhotoUpload
+                    dataUrl={data.photoDataUrl}
+                    fileName={data.photoFileName}
+                    onPick={() => fileInputRef.current?.click()}
+                    onRemove={removePhoto}
+                    hasError={!!errors.photo}
                   />
+                  <input
+                    ref={fileInputRef}
+                    id="iy-photo"
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    className="hidden"
+                    onChange={handlePhotoChange}
+                    aria-invalid={!!errors.photo}
+                  />
+                  <p className="text-xs text-expando-gray-600 mt-1.5">
+                    {t('introduceYourself.photoUpload.hint')}
+                  </p>
                 </Field>
 
                 <Field
-                  id="iy-funFact"
-                  label={t('introduceYourself.fields.funFact')}
+                  id="iy-bio"
+                  label={t('introduceYourself.fields.bio')}
                   required
-                  error={errors.funFact}
-                  count={data.funFact.length}
-                  max={FUN_MAX}
+                  error={errors.bio}
+                  count={data.bio.length}
+                  max={BIO_MAX}
                 >
                   <textarea
-                    id="iy-funFact"
-                    rows={3}
-                    placeholder={t('introduceYourself.placeholders.funFact')}
-                    value={data.funFact}
-                    onChange={update('funFact')}
-                    aria-invalid={!!errors.funFact}
-                    className={textareaClass(!!errors.funFact)}
+                    id="iy-bio"
+                    rows={5}
+                    placeholder={t('introduceYourself.placeholders.bio')}
+                    value={data.bio}
+                    onChange={updateBio}
+                    aria-invalid={!!errors.bio}
+                    className={textareaClass(!!errors.bio)}
                   />
                 </Field>
+
+                {submitError && (
+                  <div
+                    className="mb-4 rounded-lg border border-red-200 bg-red-50
+                               px-3.5 py-2.5 text-sm text-red-700"
+                    role="alert"
+                  >
+                    {submitError}
+                  </div>
+                )}
 
                 <div className="mt-2 flex justify-end">
                   <button
@@ -227,8 +337,17 @@ export function IntroduceYourselfForm({
                     className="btn-primary disabled:opacity-50
                                disabled:cursor-not-allowed"
                   >
-                    <Check size={16} />
-                    {t('introduceYourself.submitCta')}
+                    {submitting ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" />
+                        {t('introduceYourself.submitting')}
+                      </>
+                    ) : (
+                      <>
+                        <Check size={16} />
+                        {t('introduceYourself.submitCta')}
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
@@ -249,10 +368,92 @@ export function IntroduceYourselfForm({
   );
 }
 
-function SuccessView({ onEdit }: { onEdit: () => void }) {
+function PhotoUpload({
+  dataUrl,
+  fileName,
+  onPick,
+  onRemove,
+  hasError,
+}: {
+  dataUrl: string | null;
+  fileName: string | null;
+  onPick: () => void;
+  onRemove: () => void;
+  hasError: boolean;
+}) {
+  const { t } = useLanguage();
+
+  if (dataUrl) {
+    return (
+      <div className="flex items-center gap-4">
+        <div
+          className="w-20 h-20 rounded-2xl overflow-hidden bg-expando-gray-50
+                     ring-1 ring-expando-gray-200 shadow-sm flex-shrink-0"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={dataUrl}
+            alt={fileName ?? 'Your photo'}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="flex flex-col gap-1.5 min-w-0">
+          <button
+            type="button"
+            onClick={onPick}
+            className="inline-flex items-center gap-1.5 text-sm font-medium
+                       text-expando-orange hover:text-expando-orange-hover
+                       transition-colors self-start"
+          >
+            <Upload size={14} />
+            {t('introduceYourself.photoUpload.change')}
+          </button>
+          <button
+            type="button"
+            onClick={onRemove}
+            className="inline-flex items-center gap-1.5 text-sm font-medium
+                       text-expando-gray-600 hover:text-expando-gray-900
+                       transition-colors self-start"
+          >
+            <X size={14} />
+            {t('introduceYourself.photoUpload.remove')}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={onPick}
+      className={`w-full flex items-center justify-center gap-2.5 rounded-lg
+                  py-6 text-sm font-medium transition-colors
+                  border-2 border-dashed
+                  ${
+                    hasError
+                      ? 'border-red-300 text-red-600 hover:border-red-400'
+                      : 'border-expando-gray-200 text-expando-gray-700 hover:border-expando-orange hover:text-expando-orange'
+                  }`}
+    >
+      <ImageIcon size={18} />
+      {t('introduceYourself.photoUpload.cta')}
+    </button>
+  );
+}
+
+function SuccessView({
+  onEdit,
+  photoDataUrl,
+  bio,
+}: {
+  onEdit: () => void;
+  photoDataUrl: string | null;
+  bio: string;
+}) {
   const { t } = useLanguage();
   return (
-    <div className="flex flex-col items-center justify-center py-10 text-center">
+    <div className="flex flex-col items-center justify-center py-8 text-center">
       <div
         className="w-16 h-16 rounded-full bg-expando-green-soft
                    flex items-center justify-center mb-4 animate-scale-in"
@@ -266,10 +467,30 @@ function SuccessView({ onEdit }: { onEdit: () => void }) {
       <p className="text-lg font-semibold text-expando-gray-900">
         {t('introduceYourself.success.title')}
       </p>
+      {photoDataUrl && (
+        <div className="mt-5 flex flex-col items-center gap-3">
+          <div
+            className="w-24 h-24 rounded-2xl overflow-hidden bg-expando-gray-50
+                       ring-1 ring-expando-gray-200 shadow-sm"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={photoDataUrl}
+              alt="Your photo"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {bio && (
+            <p className="text-sm text-expando-gray-600 max-w-md leading-relaxed">
+              {bio}
+            </p>
+          )}
+        </div>
+      )}
       <button
         type="button"
         onClick={onEdit}
-        className="mt-4 inline-flex items-center text-sm font-medium
+        className="mt-5 inline-flex items-center text-sm font-medium
                    text-expando-orange hover:text-expando-orange-hover
                    transition-colors"
       >
@@ -311,7 +532,7 @@ function Field({
       {(error || showCounter) && (
         <div className="flex justify-between items-start mt-1.5 gap-3">
           <p className={`text-xs ${error ? 'text-red-600' : 'text-transparent'}`}>
-            {error || ' '}
+            {error || ' '}
           </p>
           {showCounter && (
             <span

@@ -495,26 +495,36 @@
   },
   "introduceYourself": {
     "title": "Představ se týmu",
-    "subtitle": "Dvě krátké otázky — uvidí je jen tvůj tým.",
+    "subtitle": "Krátké představení a fotka — uvidí to tvůj tým.",
     "fields": {
       "fullName": "Tvoje jméno",
-      "whyExpando": "Proč ses rozhodl/a pro EXPANDO?",
-      "funFact": "Řekni nám o sobě nějaký fun fact 🎉"
+      "bio": "Pověz nám něco o sobě",
+      "photo": "Tvoje fotka"
     },
     "placeholders": {
-      "whyExpando": "Co tě na nás zaujalo, co tě sem přivádí…",
-      "funFact": "Něco neobvyklého — koníček, dovednost, příhoda…"
+      "bio": "Odkud jsi, co tě baví, co tě dělá tebou — buď autentický/á."
     },
     "validation": {
-      "whyExpandoMin": "Napiš alespoň 20 znaků.",
-      "whyExpandoMax": "Maximálně 500 znaků.",
-      "funFactMin": "Napiš alespoň 10 znaků.",
-      "funFactMax": "Maximálně 300 znaků."
+      "bioMin": "Napiš alespoň 30 znaků.",
+      "bioMax": "Maximálně 600 znaků.",
+      "photoRequired": "Prosím přidej svoji fotku.",
+      "photoTooLarge": "Obrázek je moc velký. Max 5 MB.",
+      "photoWrongType": "Nahraj obrázek (JPG, PNG nebo WebP)."
+    },
+    "photoUpload": {
+      "cta": "Nahrát fotku",
+      "change": "Změnit fotku",
+      "remove": "Odstranit",
+      "hint": "JPG, PNG nebo WebP, do 5 MB"
     },
     "submitCta": "Uložit a sdílet s týmem",
+    "submitting": "Ukládám…",
     "success": {
       "title": "Skvělé! Tým se těší tě poznat.",
-      "editAnswers": "Upravit odpovědi →"
+      "editAnswers": "Upravit profil →"
+    },
+    "errors": {
+      "submitFailed": "Profil se nepodařilo uložit. Zkus to prosím znovu."
     }
   },
   "waysOfWork": {

@@ -495,26 +495,36 @@
   },
   "introduceYourself": {
     "title": "Introduce yourself",
-    "subtitle": "Two short questions — visible only to your team.",
+    "subtitle": "A short intro and your photo — visible to your team.",
     "fields": {
       "fullName": "Your name",
-      "whyExpando": "Why did you choose EXPANDO?",
-      "funFact": "Tell us a fun fact 🎉"
+      "bio": "Tell us about yourself",
+      "photo": "Your photo"
     },
     "placeholders": {
-      "whyExpando": "What drew you to us, what brings you here…",
-      "funFact": "Something unusual — hobby, skill, story…"
+      "bio": "Where you're from, what you love, what makes you tick — keep it real."
     },
     "validation": {
-      "whyExpandoMin": "Please write at least 20 characters.",
-      "whyExpandoMax": "Max 500 characters.",
-      "funFactMin": "Please write at least 10 characters.",
-      "funFactMax": "Max 300 characters."
+      "bioMin": "Please write at least 30 characters.",
+      "bioMax": "Max 600 characters.",
+      "photoRequired": "Please add a photo of yourself.",
+      "photoTooLarge": "Image is too large. Max 5 MB.",
+      "photoWrongType": "Please upload an image (JPG, PNG, or WebP)."
+    },
+    "photoUpload": {
+      "cta": "Upload photo",
+      "change": "Change photo",
+      "remove": "Remove",
+      "hint": "JPG, PNG or WebP, up to 5 MB"
     },
     "submitCta": "Save & share with the team",
+    "submitting": "Saving…",
     "success": {
       "title": "Awesome! The team can't wait to meet you.",
-      "editAnswers": "Edit answers →"
+      "editAnswers": "Edit profile →"
+    },
+    "errors": {
+      "submitFailed": "Couldn't save your profile. Please try again."
     }
   },
   "waysOfWork": {
