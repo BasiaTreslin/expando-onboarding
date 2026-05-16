@@ -632,10 +632,5 @@
       "agencySupport": "Agency Support",
       "newMarketplaces": "New Marketplaces"
     }
-  },
-  "gamification": {
-    "modal": {
-      "title": "Skvělá práce, {firstName}!"
-    }
   }
 }
